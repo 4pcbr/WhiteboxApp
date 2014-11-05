@@ -11,15 +11,36 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var menu: NSMenu!
 
-
+    var statusBar = NSStatusBar.systemStatusBar()
+    var statusBarItem : NSStatusItem = NSStatusItem()
+    var defaultMenuIcon = NSImage(named: "MenuIcon")
+    
+    @IBAction func quit(sender: AnyObject) {
+        exit(0)
+    }
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        initMenuIcon()
+    }
+    
+    // MARK: - Inteface build section
+    
+    func initMenuIcon() {
+        statusBarItem = statusBar.statusItemWithLength(-1)
+        statusBarItem.image = defaultMenuIcon
+        statusBarItem.alternateImage = defaultMenuIcon
+        statusBarItem.menu = menu
     }
 
     // MARK: - Core Data stack
@@ -157,6 +178,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .TerminateNow
     }
-
+    
 }
 

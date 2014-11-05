@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="untitled.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Capture" representedClassName="Capture" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="capture_data" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CaptureData" inverseName="capture" inverseEntity="CaptureData" syncable="YES"/>
+    </entity>
+    <entity name="CaptureData" representedClassName="CaptureData" syncable="YES">
+        <attribute name="meta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="provider" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="capture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Capture" inverseName="capture_data" inverseEntity="Capture" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Capture" positionX="-281" positionY="20" width="128" height="88"/>
+        <element name="CaptureData" positionX="-54" positionY="9" width="128" height="103"/>
+    </elements>
 </model>

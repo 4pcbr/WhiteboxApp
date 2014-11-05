@@ -1,0 +1,72 @@
+PODS:
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest
+    - ASIHTTPRequest/CloudFiles
+    - ASIHTTPRequest/Core
+    - ASIHTTPRequest/S3
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - OMGHTTPURLRQ (2.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/RQ
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/FormURLEncode (2.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/RQ (2.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (2.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - PromiseKit (1.0.1):
+    - PromiseKit/NSNotificationCenter
+    - PromiseKit/NSURLConnection
+    - PromiseKit/Pause
+    - PromiseKit/UIActionSheet
+    - PromiseKit/UIAlertView
+    - PromiseKit/UIView
+    - PromiseKit/UIViewController
+    - PromiseKit/Until
+    - PromiseKit/When
+  - PromiseKit/NSNotificationCenter (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/NSTask (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/NSURLConnection (1.0.1):
+    - OMGHTTPURLRQ
+    - PromiseKit/Promise
+  - PromiseKit/Pause (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/Promise (1.0.1)
+  - PromiseKit/UIActionSheet (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/UIAlertView (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/UIView (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/UIViewController (1.0.1):
+    - PromiseKit/Promise
+  - PromiseKit/Until (1.0.1):
+    - PromiseKit/Promise
+    - PromiseKit/When
+  - PromiseKit/When (1.0.1):
+    - PromiseKit/Promise
+
+DEPENDENCIES:
+  - ASIHTTPRequest
+  - PromiseKit
+  - PromiseKit/NSTask
+
+SPEC CHECKSUMS:
+  ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
+  OMGHTTPURLRQ: 16564bcee86d8dfa298b65cdf60015c3065f67df
+  PromiseKit: 9eb0f2db4ca08b1d6979ca81ba530b8e5c552038
+
+COCOAPODS: 0.34.1

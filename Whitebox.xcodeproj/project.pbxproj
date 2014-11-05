@@ -12,6 +12,9 @@
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
 		5D79F70B1A051FE400BDB73F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7091A051FE400BDB73F /* MainMenu.xib */; };
 		5D79F7171A051FE400BDB73F /* WhiteboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */; };
+		5D7E8A5E1A0AE706000AD8BD /* CaptureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7E8A5D1A0AE706000AD8BD /* CaptureData.swift */; };
+		5D7E8A601A0AE707000AD8BD /* Capture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7E8A5F1A0AE707000AD8BD /* Capture.swift */; };
+		A13CC134D32D1FD40C00BBAD /* libPods-Whitebox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,11 @@
 		5D79F7101A051FE400BDB73F /* WhiteboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiteboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7151A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxTests.swift; sourceTree = "<group>"; };
+		5D7E8A5D1A0AE706000AD8BD /* CaptureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureData.swift; sourceTree = "<group>"; };
+		5D7E8A5F1A0AE707000AD8BD /* Capture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
+		6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Whitebox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC49240EFBF3587278B67BF /* Pods-Whitebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.release.xcconfig"; sourceTree = "<group>"; };
+		F53B40DDD010A2DE0FC996C3 /* Pods-Whitebox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13CC134D32D1FD40C00BBAD /* libPods-Whitebox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +63,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49B98352CF3024D0B1050588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D79F6F41A051FE400BDB73F = {
 			isa = PBXGroup;
 			children = (
 				5D79F6FF1A051FE400BDB73F /* Whitebox */,
 				5D79F7131A051FE400BDB73F /* WhiteboxTests */,
 				5D79F6FE1A051FE400BDB73F /* Products */,
+				5DE1214559A5D3C9D814D5CB /* Pods */,
+				49B98352CF3024D0B1050588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +94,7 @@
 		5D79F6FF1A051FE400BDB73F /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				5D7E8A581A0AE567000AD8BD /* Model */,
 				5D79F7021A051FE400BDB73F /* AppDelegate.swift */,
 				5D79F7071A051FE400BDB73F /* Images.xcassets */,
 				5D79F7091A051FE400BDB73F /* MainMenu.xib */,
@@ -109,6 +129,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5D7E8A581A0AE567000AD8BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D7E8A5F1A0AE707000AD8BD /* Capture.swift */,
+				5D7E8A5D1A0AE706000AD8BD /* CaptureData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5DE1214559A5D3C9D814D5CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F53B40DDD010A2DE0FC996C3 /* Pods-Whitebox.debug.xcconfig */,
+				7BC49240EFBF3587278B67BF /* Pods-Whitebox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D79F71A1A051FE400BDB73F /* Build configuration list for PBXNativeTarget "Whitebox" */;
 			buildPhases = (
+				AB72B872C906D47C97C872EE /* Check Pods Manifest.lock */,
 				5D79F6F91A051FE400BDB73F /* Sources */,
 				5D79F6FA1A051FE400BDB73F /* Frameworks */,
 				5D79F6FB1A051FE400BDB73F /* Resources */,
+				733CCC26711130108459B877 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,13 +243,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		733CCC26711130108459B877 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB72B872C906D47C97C872EE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D79F6F91A051FE400BDB73F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7E8A601A0AE707000AD8BD /* Capture.swift in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
+				5D7E8A5E1A0AE706000AD8BD /* CaptureData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,22 +397,26 @@
 		};
 		5D79F71B1A051FE400BDB73F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F53B40DDD010A2DE0FC996C3 /* Pods-Whitebox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Whitebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		5D79F71C1A051FE400BDB73F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BC49240EFBF3587278B67BF /* Pods-Whitebox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Whitebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -397,6 +476,7 @@
 				5D79F71C1A051FE400BDB73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D79F71D1A051FE400BDB73F /* Build configuration list for PBXNativeTarget "WhiteboxTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +485,7 @@
 				5D79F71F1A051FE400BDB73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
