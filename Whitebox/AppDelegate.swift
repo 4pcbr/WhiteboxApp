@@ -13,9 +13,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var menu: NSMenu!
 
-    var statusBar = NSStatusBar.systemStatusBar()
-    var statusBarItem : NSStatusItem = NSStatusItem()
-    var defaultMenuIcon = NSImage(named: "MenuIcon")
+    var statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
+    var statusBarItem   : NSStatusItem = NSStatusItem()
+    var defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     
     @IBAction func quit(sender: AnyObject) {
         exit(0)
@@ -43,6 +43,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.menu = menu
     }
 
+    // MARK: - Plugin init section
+    
+    func initPlugins() {
+        
+    }
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
