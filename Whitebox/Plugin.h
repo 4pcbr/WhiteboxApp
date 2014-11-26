@@ -17,8 +17,10 @@
 
 @property (nonatomic, strong, readonly) NSString *name;
 
-- (id) initWithSourceCode:(NSString *)sourceCode andOptions:(NSDictionary *)options;
+- (id) initWithOptions:(NSDictionary *)options;
 
 - (PMKPromise *) run:(Capture *)capture;
+
+- (BOOL) canProceed:(Capture *)capture;
 
 @end

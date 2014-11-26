@@ -11,7 +11,7 @@
 
 @implementation Plugin
 
-- (PMKPromise *) run:(NSString *)data {
+- (PMKPromise *) run:(Capture *)capture {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];

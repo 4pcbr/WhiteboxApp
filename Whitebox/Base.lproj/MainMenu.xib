@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
@@ -15,16 +15,22 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Whitebox" customModuleProvider="target">
             <connections>
                 <outlet property="menu" destination="Lg1-Lh-rlv" id="G9y-ge-BRk"/>
+                <outlet property="settingsWindow" destination="yhB-qj-iet" id="1qn-cU-qt2"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="Lg1-Lh-rlv">
             <items>
-                <menuItem title="New screenshot" id="ZVi-ip-bSw">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="New screenshot" keyEquivalent="E" id="ZVi-ip-bSw">
+                    <connections>
+                        <action selector="captureScreen:" target="Voe-Tx-rLC" id="Feb-Ql-EHh"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Settings" id="5bz-gN-buA">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openSettingsWindow:" target="Voe-Tx-rLC" id="Sgb-iO-E3U"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="HvA-BW-mgR"/>
                 <menuItem title="..." id="JOh-Nw-B4D">
@@ -40,5 +46,15 @@
             </items>
             <point key="canvasLocation" x="136.5" y="120.5"/>
         </menu>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="yhB-qj-iet">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="704" y="394" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" id="du5-0f-Zfe">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <point key="canvasLocation" x="379" y="366"/>
+        </window>
     </objects>
 </document>

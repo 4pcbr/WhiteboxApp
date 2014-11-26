@@ -9,16 +9,31 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate {
 
-    @IBOutlet weak var menu: NSMenu!
+    @IBOutlet weak var menu           : NSMenu!
+    @IBOutlet weak var settingsWindow : NSWindow!
 
-    var statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
+    let statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
+    let defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     var statusBarItem   : NSStatusItem = NSStatusItem()
-    var defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
+    var plugins         : NSArray {
+//        return PluginFactory.initPluginsForBundle(NSBundle.mainBundle(), inDirectory: ".", ofType: "js", withOptions: ["webView": self.webView])
+        return [];
+    }
+    
+    @IBAction func captureScreen(sender: AnyObject) {
+        let options = NSDictionary()
+        ScreenGrabber.capture(options, delegate: self)
+    }
     
     @IBAction func quit(sender: AnyObject) {
         exit(0)
+    }
+    
+    @IBAction func openSettingsWindow(sender: AnyObject) {
+        settingsWindow.makeKeyAndOrderFront(self)
+        NSApp.activateIgnoringOtherApps(true)
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -32,6 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         initMenuIcon()
+        initPlugins()
     }
     
     // MARK: - Inteface build section
@@ -46,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Plugin init section
     
     func initPlugins() {
-        
+        NSLog("%@", self.plugins)
     }
     
     // MARK: - Core Data stack
@@ -183,6 +199,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         // If we got here, it is time to quit.
         return .TerminateNow
+    }
+    
+    func screenGrabberComplete(handle: NSFileHandle) {
+        // TODO
+        NSLog("Done!")
+    }
+    
+    func screenGrabberFail(error: NSError) {
+        // TODO
+        NSLog("Fail!")
+    }
+    
+    func screenGrabberFinally() {
+        // TODO
+        NSLog("Finally!")
     }
     
 }

@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D3B19021A13F9480063DD46 /* Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19011A13F9480063DD46 /* Plugin.m */; };
-		5D3B19051A13F9AB0063DD46 /* JSPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19041A13F9AB0063DD46 /* JSPlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
-		5D3B19101A14165E0063DD46 /* PluginFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190F1A14165E0063DD46 /* PluginFactory.m */; };
 		5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7021A051FE400BDB73F /* AppDelegate.swift */; };
 		5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */; };
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
 		5D79F70B1A051FE400BDB73F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7091A051FE400BDB73F /* MainMenu.xib */; };
 		5D79F7171A051FE400BDB73F /* WhiteboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */; };
+		5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */; };
+		5DA8D0731A22A0F90024B6F8 /* ImageFileCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */; };
 		A13CC134D32D1FD40C00BBAD /* libPods-Whitebox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */; };
 /* End PBXBuildFile section */
 
@@ -31,17 +32,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileStoragePlugin.h; sourceTree = "<group>"; };
+		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
+		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
 		5D3B18FF1A13F9470063DD46 /* Whitebox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Whitebox-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D3B19001A13F9480063DD46 /* Plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin.h; sourceTree = "<group>"; };
 		5D3B19011A13F9480063DD46 /* Plugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin.m; sourceTree = "<group>"; };
-		5D3B19031A13F9AB0063DD46 /* JSPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPlugin.h; sourceTree = "<group>"; };
-		5D3B19041A13F9AB0063DD46 /* JSPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPlugin.m; sourceTree = "<group>"; };
 		5D3B19061A1402050063DD46 /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
 		5D3B19091A1402050063DD46 /* CaptureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureData.h; sourceTree = "<group>"; };
 		5D3B190A1A1402050063DD46 /* CaptureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureData.m; sourceTree = "<group>"; };
-		5D3B190E1A14165E0063DD46 /* PluginFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginFactory.h; sourceTree = "<group>"; };
-		5D3B190F1A14165E0063DD46 /* PluginFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginFactory.m; sourceTree = "<group>"; };
 		5D79F6FD1A051FE400BDB73F /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7011A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7021A051FE400BDB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +51,10 @@
 		5D79F7101A051FE400BDB73F /* WhiteboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiteboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7151A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxTests.swift; sourceTree = "<group>"; };
+		5DA8D06E1A22987F0024B6F8 /* ScreenGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabber.h; sourceTree = "<group>"; };
+		5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenGrabber.m; sourceTree = "<group>"; };
+		5DA8D0711A22A0F90024B6F8 /* ImageFileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileCapture.h; sourceTree = "<group>"; };
+		5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileCapture.m; sourceTree = "<group>"; };
 		6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Whitebox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC49240EFBF3587278B67BF /* Pods-Whitebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.release.xcconfig"; sourceTree = "<group>"; };
 		F53B40DDD010A2DE0FC996C3 /* Pods-Whitebox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,15 +87,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D09B80B1A22731500E1DB25 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				5D09B80C1A22749000E1DB25 /* StoragePlugins */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
+		5D09B80C1A22749000E1DB25 /* StoragePlugins */ = {
+			isa = PBXGroup;
+			children = (
+				5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */,
+				5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */,
+			);
+			name = StoragePlugins;
+			sourceTree = "<group>";
+		};
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D876DE41A2280A800EBFB2B /* Grabber */,
+				5D876DE11A227DC200EBFB2B /* Capture */,
 				5D3B19001A13F9480063DD46 /* Plugin.h */,
 				5D3B19011A13F9480063DD46 /* Plugin.m */,
-				5D3B19031A13F9AB0063DD46 /* JSPlugin.h */,
-				5D3B19041A13F9AB0063DD46 /* JSPlugin.m */,
-				5D3B190E1A14165E0063DD46 /* PluginFactory.h */,
-				5D3B190F1A14165E0063DD46 /* PluginFactory.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -119,6 +138,7 @@
 		5D79F6FF1A051FE400BDB73F /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				5D09B80B1A22731500E1DB25 /* Plugins */,
 				5D3B18FE1A13F9140063DD46 /* Core */,
 				5D7E8A581A0AE567000AD8BD /* Model */,
 				5D79F7021A051FE400BDB73F /* AppDelegate.swift */,
@@ -165,6 +185,25 @@
 				5D3B19071A1402050063DD46 /* Capture.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5D876DE11A227DC200EBFB2B /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				5DA8D0711A22A0F90024B6F8 /* ImageFileCapture.h */,
+				5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */,
+			);
+			name = Capture;
+			sourceTree = "<group>";
+		};
+		5D876DE41A2280A800EBFB2B /* Grabber */ = {
+			isa = PBXGroup;
+			children = (
+				5DA8D06E1A22987F0024B6F8 /* ScreenGrabber.h */,
+				5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */,
+				5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */,
+			);
+			name = Grabber;
 			sourceTree = "<group>";
 		};
 		5DE1214559A5D3C9D814D5CB /* Pods */ = {
@@ -311,11 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */,
+				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
 				5D3B19021A13F9480063DD46 /* Plugin.m in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
-				5D3B19051A13F9AB0063DD46 /* JSPlugin.m in Sources */,
-				5D3B19101A14165E0063DD46 /* PluginFactory.m in Sources */,
+				5DA8D0731A22A0F90024B6F8 /* ImageFileCapture.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
+				5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

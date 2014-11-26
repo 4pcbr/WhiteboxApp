@@ -3,5 +3,7 @@
 //
 
 #import <PromiseKit/Promise.h>
+#import <PromiseKit/NSTask+PromiseKit.h>
 #import "Plugin.h"
-#import "JSPlugin.h"
+#import "ScreenGrabber.h"
+#import "ScreenGrabberDelegate.h"
