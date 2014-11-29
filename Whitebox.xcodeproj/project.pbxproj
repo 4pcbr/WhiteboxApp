@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
-		5D3B19021A13F9480063DD46 /* Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19011A13F9480063DD46 /* Plugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
+		5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */; };
+		5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86D1A2A7D8B006C1222 /* Reactor.m */; };
+		5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */; };
+		5D5FB8761A2A7ED4006C1222 /* ImageFileCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */; };
 		5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7021A051FE400BDB73F /* AppDelegate.swift */; };
 		5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */; };
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
 		5D79F70B1A051FE400BDB73F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7091A051FE400BDB73F /* MainMenu.xib */; };
 		5D79F7171A051FE400BDB73F /* WhiteboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */; };
 		5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */; };
-		5DA8D0731A22A0F90024B6F8 /* ImageFileCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */; };
 		A13CC134D32D1FD40C00BBAD /* libPods-Whitebox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */; };
 /* End PBXBuildFile section */
 
@@ -36,12 +38,21 @@
 		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
 		5D3B18FF1A13F9470063DD46 /* Whitebox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Whitebox-Bridging-Header.h"; sourceTree = "<group>"; };
-		5D3B19001A13F9480063DD46 /* Plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin.h; sourceTree = "<group>"; };
-		5D3B19011A13F9480063DD46 /* Plugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin.m; sourceTree = "<group>"; };
 		5D3B19061A1402050063DD46 /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
 		5D3B19091A1402050063DD46 /* CaptureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureData.h; sourceTree = "<group>"; };
 		5D3B190A1A1402050063DD46 /* CaptureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureData.m; sourceTree = "<group>"; };
+		5D5FB8691A2A7D6E006C1222 /* ReactorPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorPlugin.h; sourceTree = "<group>"; };
+		5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactorPlugin.m; sourceTree = "<group>"; };
+		5D5FB86C1A2A7D8B006C1222 /* Reactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reactor.h; sourceTree = "<group>"; };
+		5D5FB86D1A2A7D8B006C1222 /* Reactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reactor.m; sourceTree = "<group>"; };
+		5D5FB86E1A2A7D8B006C1222 /* ReactorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorData.h; sourceTree = "<group>"; };
+		5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactorData.m; sourceTree = "<group>"; };
+		5D5FB8701A2A7D8B006C1222 /* ReactorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorDelegate.h; sourceTree = "<group>"; };
+		5D5FB8711A2A7D8B006C1222 /* ReactorEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorEvents.h; sourceTree = "<group>"; };
+		5D5FB8741A2A7ED4006C1222 /* ImageFileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileCapture.h; sourceTree = "<group>"; };
+		5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileCapture.m; sourceTree = "<group>"; };
+		5D5FB8771A2A8571006C1222 /* SharedContextKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedContextKeys.h; sourceTree = "<group>"; };
 		5D79F6FD1A051FE400BDB73F /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7011A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7021A051FE400BDB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +64,6 @@
 		5D79F7161A051FE400BDB73F /* WhiteboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxTests.swift; sourceTree = "<group>"; };
 		5DA8D06E1A22987F0024B6F8 /* ScreenGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabber.h; sourceTree = "<group>"; };
 		5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenGrabber.m; sourceTree = "<group>"; };
-		5DA8D0711A22A0F90024B6F8 /* ImageFileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileCapture.h; sourceTree = "<group>"; };
-		5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileCapture.m; sourceTree = "<group>"; };
 		6EA2839C6286414DE4DC56CC /* libPods-Whitebox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Whitebox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC49240EFBF3587278B67BF /* Pods-Whitebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.release.xcconfig"; sourceTree = "<group>"; };
 		F53B40DDD010A2DE0FC996C3 /* Pods-Whitebox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whitebox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Whitebox/Pods-Whitebox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,10 +116,16 @@
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D5FB86C1A2A7D8B006C1222 /* Reactor.h */,
+				5D5FB86D1A2A7D8B006C1222 /* Reactor.m */,
+				5D5FB86E1A2A7D8B006C1222 /* ReactorData.h */,
+				5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */,
+				5D5FB8701A2A7D8B006C1222 /* ReactorDelegate.h */,
+				5D5FB8711A2A7D8B006C1222 /* ReactorEvents.h */,
+				5D5FB8691A2A7D6E006C1222 /* ReactorPlugin.h */,
+				5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */,
 				5D876DE41A2280A800EBFB2B /* Grabber */,
 				5D876DE11A227DC200EBFB2B /* Capture */,
-				5D3B19001A13F9480063DD46 /* Plugin.h */,
-				5D3B19011A13F9480063DD46 /* Plugin.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -142,6 +157,7 @@
 				5D3B18FE1A13F9140063DD46 /* Core */,
 				5D7E8A581A0AE567000AD8BD /* Model */,
 				5D79F7021A051FE400BDB73F /* AppDelegate.swift */,
+				5D5FB8771A2A8571006C1222 /* SharedContextKeys.h */,
 				5D79F7071A051FE400BDB73F /* Images.xcassets */,
 				5D79F7091A051FE400BDB73F /* MainMenu.xib */,
 				5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */,
@@ -190,8 +206,8 @@
 		5D876DE11A227DC200EBFB2B /* Capture */ = {
 			isa = PBXGroup;
 			children = (
-				5DA8D0711A22A0F90024B6F8 /* ImageFileCapture.h */,
-				5DA8D0721A22A0F90024B6F8 /* ImageFileCapture.m */,
+				5D5FB8741A2A7ED4006C1222 /* ImageFileCapture.h */,
+				5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */,
 			);
 			name = Capture;
 			sourceTree = "<group>";
@@ -350,12 +366,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */,
+				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
-				5D3B19021A13F9480063DD46 /* Plugin.m in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
-				5DA8D0731A22A0F90024B6F8 /* ImageFileCapture.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
+				5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */,
+				5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */,
 				5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */,
+				5D5FB8761A2A7ED4006C1222 /* ImageFileCapture.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

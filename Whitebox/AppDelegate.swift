@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, ReactorDelegate {
 
     @IBOutlet weak var menu           : NSMenu!
     @IBOutlet weak var settingsWindow : NSWindow!
@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate {
     let statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
     let defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     var statusBarItem   : NSStatusItem = NSStatusItem()
+    let plugin_reactor  : Reactor      = Reactor()
     var plugins         : NSArray {
 //        return PluginFactory.initPluginsForBundle(NSBundle.mainBundle(), inDirectory: ".", ofType: "js", withOptions: ["webView": self.webView])
         return [];
@@ -63,6 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate {
     
     func initPlugins() {
         NSLog("%@", self.plugins)
+        // TODO
     }
     
     // MARK: - Core Data stack
@@ -200,21 +202,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate {
         // If we got here, it is time to quit.
         return .TerminateNow
     }
+
+    // ScreenCaprureDelegate protocol section
     
-    func screenGrabberComplete(handle: NSFileHandle) {
-        // TODO
-        NSLog("Done!")
+    func screenGrabberComplete(handle: NSFileHandle?) {
+        if handle === nil { return }
+        let capture : Capture = NSEntityDescription.insertNewObjectForEntityForName("Capture", inManagedObjectContext: managedObjectContext!) as Capture
+        let shared_context : NSMutableDictionary = NSMutableDictionary(objectsAndKeys:
+                capture, SHRD_CTX_CAPTURE_MNGD_OBJ,
+                handle!, SHRD_CTX_TMP_FILE_HANDLE
+        )
+        let reactor_data : ReactorData = ReactorData(data: shared_context)
+        plugin_reactor.emitEvent(RE_SCREEN_CAPTURE_CREATED, data: reactor_data, delegate: self)
     }
     
     func screenGrabberFail(error: NSError) {
         // TODO
+        NSLog("%@", error)
         NSLog("Fail!")
     }
     
     func screenGrabberFinally() {
-        // TODO
-        NSLog("Finally!")
     }
     
+    // End of ScreenCaprureDelegate protocol section
+    
+    
+    func reactorComplete(data: NSData!) {
+        
+    }
+    
+    func reactorFail(error: NSError!) {
+        
+    }
+    
+    func reactorFinally() {
+        
+    }
 }
 

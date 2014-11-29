@@ -10,4 +10,12 @@
 
 @implementation LocalFileStoragePlugin
 
+- (BOOL) canHandleEvent:(int)event_id {
+    return event_id == RE_SCREEN_CAPTURE_CREATED;
+}
+
+- (BOOL) canProceed:(Capture *)capture {
+    return YES; //([capture class] == [ImageFileCapture class]);
+}
+
 @end

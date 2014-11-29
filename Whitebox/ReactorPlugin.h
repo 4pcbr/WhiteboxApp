@@ -1,5 +1,5 @@
 //
-//  Plugin.h
+//  ReactorPlugin.h
 //  Whitebox
 //
 //  Created by Olegs on 12/11/14.
@@ -11,8 +11,9 @@
 #import "Capture.h"
 
 
-@interface Plugin : NSObject {
-    BOOL enabled;
+@interface ReactorPlugin : NSObject {
+    BOOL           enabled;
+    NSDictionary * options;
 }
 
 @property (nonatomic, strong, readonly) NSString *name;
@@ -20,6 +21,8 @@
 - (id) initWithOptions:(NSDictionary *)options;
 
 - (PMKPromise *) run:(Capture *)capture;
+
+- (BOOL) canHandleEvent:(int)event_id;
 
 - (BOOL) canProceed:(Capture *)capture;
 

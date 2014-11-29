@@ -8,10 +8,9 @@
 
 #import <PromiseKit/Promise.h>
 #import <PromiseKit/NSTask+PromiseKit.h>
-#import "Plugin.h"
 #import "ScreenGrabberDelegate.h"
 
-@interface ScreenGrabber : Plugin
+@interface ScreenGrabber : NSObject 
 
 + (PMKPromise *) capture:(NSDictionary *)options;
 + (void) capture:(NSDictionary *)options delegate:(id<ScreenGrabberDelegate>)delegate;

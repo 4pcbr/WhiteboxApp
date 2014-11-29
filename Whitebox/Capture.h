@@ -13,9 +13,9 @@
 
 @interface Capture : NSManagedObject
 
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSNumber * type;
-@property (nonatomic, retain) NSSet *capture_data;
+@property (nonatomic, retain) NSDate    * created_at;
+@property (nonatomic, retain) NSNumber  * type;
+@property (nonatomic, retain) NSSet     * capture_data;
 @end
 
 @interface Capture (CoreDataGeneratedAccessors)

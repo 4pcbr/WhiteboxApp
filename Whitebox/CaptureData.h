@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSString * meta;
 @property (nonatomic, retain) NSString * provider;
 @property (nonatomic, retain) NSNumber * status;
-@property (nonatomic, retain) Capture *capture;
+@property (nonatomic, retain) Capture  * capture;
 
 @end

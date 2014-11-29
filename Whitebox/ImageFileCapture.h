@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Capture.h"
 
-@interface ImageFileCapture : NSObject
+@interface ImageFileCapture : Capture
 
 @property (nonatomic, strong, readwrite) NSString     * name;
 @property (nonatomic, strong, readwrite) NSFileHandle * file;

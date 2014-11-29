@@ -7,7 +7,6 @@
 //
 
 #import "ScreenGrabber.h"
-#import "ImageFileCapture.h"
 
 @implementation ScreenGrabber
 

@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Brand New Heroes. All rights reserved.
 //
 
-#import "Plugin.h"
+#import "ReactorPlugin.h"
+#import "ReactorEvents.h"
 
-@interface LocalFileStoragePlugin : Plugin
+@interface LocalFileStoragePlugin : ReactorPlugin
 
 @end
