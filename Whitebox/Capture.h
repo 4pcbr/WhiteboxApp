@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define CAPTURE_TYPE_SCREEN_IMG 10
+
 @class CaptureData;
 
 @interface Capture : NSManagedObject

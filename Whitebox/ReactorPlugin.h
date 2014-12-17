@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <PromiseKit/Promise.h>
 #import "Capture.h"
+#import "Processable.h"
+#import "ReactorData.h"
 
 
-@interface ReactorPlugin : NSObject {
+@interface ReactorPlugin : NSObject<Processable> {
     BOOL           enabled;
     NSDictionary * options;
 }
@@ -20,10 +22,10 @@
 
 - (id) initWithOptions:(NSDictionary *)options;
 
-- (PMKPromise *) run:(Capture *)capture;
+- (PMKPromise *) run:(ReactorData *)event_data;
 
 - (BOOL) canHandleEvent:(int)event_id;
 
-- (BOOL) canProceed:(Capture *)capture;
+- (BOOL) canProceed:(ReactorData *)event_data;
 
 @end

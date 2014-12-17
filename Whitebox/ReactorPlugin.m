@@ -19,7 +19,7 @@
     return self;
 }
 
-- (PMKPromise *) run:(Capture *)capture {
+- (PMKPromise *) run:(ReactorData *)event_data {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
@@ -30,7 +30,7 @@
     return NO;
 }
 
-- (BOOL) canProceed:(Capture *)capture {
+- (BOOL) canProceed:(ReactorData *)event_data {
     // Should be overriden in child classes
     return NO;
 }

@@ -14,8 +14,15 @@
     return event_id == RE_SCREEN_CAPTURE_CREATED;
 }
 
-- (BOOL) canProceed:(Capture *)capture {
-    return YES; //([capture class] == [ImageFileCapture class]);
+- (BOOL) canProceed:(ReactorData *)event_data {
+    
+    Capture *capture = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
+    
+    if (!capture) {
+        return NO;
+    }
+    
+    return capture.type.intValue == CAPTURE_TYPE_SCREEN_IMG;
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "ReactorPlugin.h"
 #import "ReactorData.h"
 #import "ReactorDelegate.h"
+#import "PromiseQueue.h"
 
 @interface Reactor : NSObject {
     NSMutableArray *plugins;

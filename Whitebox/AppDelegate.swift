@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     var statusBarItem   : NSStatusItem = NSStatusItem()
     let plugin_reactor  : Reactor      = Reactor()
     var plugins         : NSArray {
-//        return PluginFactory.initPluginsForBundle(NSBundle.mainBundle(), inDirectory: ".", ofType: "js", withOptions: ["webView": self.webView])
+        // TODO
         return [];
     }
     

@@ -39,6 +39,12 @@
             return fulfill(event_data);
         }
         // TODO
+        PromiseQueue *pqueue = [[PromiseQueue alloc] initWithDeferreds:responders];
+        [pqueue run:event_data].then(^(NSData *data) {
+            fulfill(data);
+        }).catch(^(NSError *error) {
+            reject(error);
+        });
     }];
 }
 
