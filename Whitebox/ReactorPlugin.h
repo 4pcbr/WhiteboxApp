@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong, readonly) NSString *name;
 
-- (id) initWithOptions:(NSDictionary *)options;
+- (id) initPluginWithOptions:(NSDictionary *)options;
 
 - (PMKPromise *) run:(ReactorData *)event_data;
 

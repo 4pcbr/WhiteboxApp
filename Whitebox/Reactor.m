@@ -38,7 +38,7 @@
         if ([responders count] == 0) {
             return fulfill(event_data);
         }
-        // TODO
+        
         PromiseQueue *pqueue = [[PromiseQueue alloc] initWithDeferreds:responders];
         [pqueue run:event_data].then(^(NSData *data) {
             fulfill(data);
@@ -49,7 +49,7 @@
 }
 
 - (void) emitEvent:(int)event_id data:(ReactorData *)event_data delegate:(id<ReactorDelegate>)delegate {
-    // TODO
+    
     [self emitEvent:event_id data:event_data].then(^(NSData * data) {
         [delegate reactorComplete:data];
     }).catch(^(NSError * error) {

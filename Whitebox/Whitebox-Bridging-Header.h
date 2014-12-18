@@ -14,3 +14,4 @@
 #import "Capture.h"
 #import "ImageFileCapture.h"
 #import "SharedContextKeys.h"
+#import "PluginManager.h"

@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     let plugin_reactor  : Reactor      = Reactor()
     var plugins         : NSArray {
         // TODO
-        return [];
+        let FIX_ME_settings : NSDictionary = NSDictionary()
+        PluginManager.initPlugins(FIX_ME_settings);
+        return PluginManager.plugins()
     }
     
     @IBAction func captureScreen(sender: AnyObject) {
@@ -64,6 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     
     func initPlugins() {
         NSLog("%@", self.plugins)
+        
         // TODO
     }
     

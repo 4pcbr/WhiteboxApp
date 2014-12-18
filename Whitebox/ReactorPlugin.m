@@ -11,7 +11,7 @@
 
 @implementation ReactorPlugin
 
-- (id) initWithOptions:(NSDictionary *)options_ {
+- (id) initPluginWithOptions:(NSDictionary *)options_ {
     if (self = [super init]) {
         self->options = options_;
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8F61A4247650004BF69 /* PromiseQueue.m */; };
+		5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8FA1A43966D0004BF69 /* PluginManager.m */; };
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
@@ -38,6 +39,8 @@
 		5D07F8F51A4247650004BF69 /* PromiseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromiseQueue.h; sourceTree = "<group>"; };
 		5D07F8F61A4247650004BF69 /* PromiseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromiseQueue.m; sourceTree = "<group>"; };
 		5D07F8F81A42483B0004BF69 /* Processable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processable.h; sourceTree = "<group>"; };
+		5D07F8F91A43966D0004BF69 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
+		5D07F8FA1A43966D0004BF69 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileStoragePlugin.h; sourceTree = "<group>"; };
 		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 			children = (
 				5D07F8F81A42483B0004BF69 /* Processable.h */,
 				5D07F8F51A4247650004BF69 /* PromiseQueue.h */,
+				5D07F8F91A43966D0004BF69 /* PluginManager.h */,
+				5D07F8FA1A43966D0004BF69 /* PluginManager.m */,
 				5D07F8F61A4247650004BF69 /* PromiseQueue.m */,
 				5D5FB86C1A2A7D8B006C1222 /* Reactor.h */,
 				5D5FB86D1A2A7D8B006C1222 /* Reactor.m */,
@@ -376,6 +381,7 @@
 				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
+				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
 				5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */,
 				5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */,

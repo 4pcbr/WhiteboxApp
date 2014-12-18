@@ -40,7 +40,7 @@
     }];
 }
 
-- (PMKPromise *)proceed:(id)arg {
+- (PMKPromise *)run:(id)arg {
     return [self _next:arg];
 }
 
