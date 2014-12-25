@@ -22,9 +22,11 @@
 
 @interface Capture (CoreDataGeneratedAccessors)
 
-- (void)addCapture_dataObject:(CaptureData *)value;
-- (void)removeCapture_dataObject:(CaptureData *)value;
-- (void)addCapture_data:(NSSet *)values;
-- (void)removeCapture_data:(NSSet *)values;
+- (void) addCapture_dataObject:(CaptureData *)value;
+- (void) removeCapture_dataObject:(CaptureData *)value;
+- (void) addCapture_data:(NSSet *)values;
+- (void) removeCapture_data:(NSSet *)values;
+
+- (void) addCaptureDataFromDictionary:(NSDictionary *)dictionary;
 
 @end

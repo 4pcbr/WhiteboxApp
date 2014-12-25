@@ -28,12 +28,22 @@
 
 - (PMKPromise *) emitEvent:(int)event_id data:(ReactorData *)event_data {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        
+        NSLog(@"Reactor event emited: id: %i, data: %@", event_id, event_data);
+        
         NSMutableArray *responders = [[NSMutableArray alloc] init];
+        
+        NSLog(@"Looking for responders");
+        
         for (ReactorPlugin *plugin in self->plugins) {
-            if ([plugin canHandleEvent:event_id]) {
+            
+            if ([plugin canHandleEvent:event_id withData:event_data]) {
+                NSLog(@"Plugin %@ can handle the event", plugin.className);
                 [responders addObject:plugin];
             }
         }
+        
+        NSLog(@"Done looking for responders");
         
         if ([responders count] == 0) {
             return fulfill(event_data);

@@ -24,8 +24,8 @@
 
 - (PMKPromise *) run:(ReactorData *)event_data;
 
-- (BOOL) canHandleEvent:(int)event_id;
+- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data;
 
-- (BOOL) canProceed:(ReactorData *)event_data;
+- (NSString *) signature;
 
 @end

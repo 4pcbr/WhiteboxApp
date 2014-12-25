@@ -26,7 +26,7 @@
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         id<Processable> obj;
         if (obj = [self->ptr nextObject]) {
-            NSLog(@"About to call object proceed");
+            NSLog(@"About to call object::run");
             [obj run:arg].then(^(NSData *data) {
                 NSLog(@"Stepping over to to next procesible");
                 [self _next:arg].then(^(NSData *data) {

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define CAPTURE_DATA_STATUS_OK      0
+#define CAPTURE_DATA_STATUS_NOT_OK  5
+
 @class Capture;
 
 @interface CaptureData : NSManagedObject

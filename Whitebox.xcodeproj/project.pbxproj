@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8F61A4247650004BF69 /* PromiseQueue.m */; };
 		5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8FA1A43966D0004BF69 /* PluginManager.m */; };
+		5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */; };
+		5D07F9031A4C6F480004BF69 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9021A4C6F480004BF69 /* Utils.m */; };
+		5D07F9051A4C72560004BF69 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F9041A4C72560004BF69 /* Settings.plist */; };
+		5D07F9081A4C73D60004BF69 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9071A4C73D60004BF69 /* Settings.m */; };
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
@@ -41,6 +45,12 @@
 		5D07F8F81A42483B0004BF69 /* Processable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processable.h; sourceTree = "<group>"; };
 		5D07F8F91A43966D0004BF69 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		5D07F8FA1A43966D0004BF69 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
+		5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoragePlugins.plist; sourceTree = "<group>"; };
+		5D07F9011A4C6F480004BF69 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		5D07F9021A4C6F480004BF69 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		5D07F9041A4C72560004BF69 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		5D07F9061A4C73D60004BF69 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		5D07F9071A4C73D60004BF69 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileStoragePlugin.h; sourceTree = "<group>"; };
 		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +113,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D07F8FE1A4C43270004BF69 /* LocalFileStoragePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */,
+				5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */,
+			);
+			name = LocalFileStoragePlugin;
+			sourceTree = "<group>";
+		};
+		5D07F8FF1A4C442F0004BF69 /* Reactor */ = {
+			isa = PBXGroup;
+			children = (
+				5D5FB86C1A2A7D8B006C1222 /* Reactor.h */,
+				5D5FB86D1A2A7D8B006C1222 /* Reactor.m */,
+				5D5FB86E1A2A7D8B006C1222 /* ReactorData.h */,
+				5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */,
+				5D5FB8701A2A7D8B006C1222 /* ReactorDelegate.h */,
+				5D5FB8711A2A7D8B006C1222 /* ReactorEvents.h */,
+			);
+			name = Reactor;
+			sourceTree = "<group>";
+		};
+		5D07F9001A4C44420004BF69 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				5D5FB8691A2A7D6E006C1222 /* ReactorPlugin.h */,
+				5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */,
+				5D07F8F91A43966D0004BF69 /* PluginManager.h */,
+				5D07F8FA1A43966D0004BF69 /* PluginManager.m */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
 		5D09B80B1A22731500E1DB25 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +157,7 @@
 		5D09B80C1A22749000E1DB25 /* StoragePlugins */ = {
 			isa = PBXGroup;
 			children = (
-				5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */,
-				5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */,
+				5D07F8FE1A4C43270004BF69 /* LocalFileStoragePlugin */,
 			);
 			name = StoragePlugins;
 			sourceTree = "<group>";
@@ -123,19 +165,11 @@
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D07F9001A4C44420004BF69 /* Plugin */,
+				5D07F8FF1A4C442F0004BF69 /* Reactor */,
 				5D07F8F81A42483B0004BF69 /* Processable.h */,
 				5D07F8F51A4247650004BF69 /* PromiseQueue.h */,
-				5D07F8F91A43966D0004BF69 /* PluginManager.h */,
-				5D07F8FA1A43966D0004BF69 /* PluginManager.m */,
 				5D07F8F61A4247650004BF69 /* PromiseQueue.m */,
-				5D5FB86C1A2A7D8B006C1222 /* Reactor.h */,
-				5D5FB86D1A2A7D8B006C1222 /* Reactor.m */,
-				5D5FB86E1A2A7D8B006C1222 /* ReactorData.h */,
-				5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */,
-				5D5FB8701A2A7D8B006C1222 /* ReactorDelegate.h */,
-				5D5FB8711A2A7D8B006C1222 /* ReactorEvents.h */,
-				5D5FB8691A2A7D6E006C1222 /* ReactorPlugin.h */,
-				5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */,
 				5D876DE41A2280A800EBFB2B /* Grabber */,
 				5D876DE11A227DC200EBFB2B /* Capture */,
 			);
@@ -175,6 +209,10 @@
 				5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */,
 				5D3B18FF1A13F9470063DD46 /* Whitebox-Bridging-Header.h */,
 				5D79F7001A051FE400BDB73F /* Supporting Files */,
+				5D07F9011A4C6F480004BF69 /* Utils.h */,
+				5D07F9021A4C6F480004BF69 /* Utils.m */,
+				5D07F9061A4C73D60004BF69 /* Settings.h */,
+				5D07F9071A4C73D60004BF69 /* Settings.m */,
 			);
 			path = Whitebox;
 			sourceTree = "<group>";
@@ -183,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				5D79F7011A051FE400BDB73F /* Info.plist */,
+				5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */,
+				5D07F9041A4C72560004BF69 /* Settings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -326,7 +366,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */,
+				5D07F9051A4C72560004BF69 /* Settings.plist in Resources */,
 				5D79F70B1A051FE400BDB73F /* MainMenu.xib in Resources */,
+				5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,8 +422,10 @@
 				5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */,
 				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
+				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
+				5D07F9081A4C73D60004BF69 /* Settings.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
 				5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */,
 				5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */,

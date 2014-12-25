@@ -14,4 +14,8 @@
 
 - (id) initWithData:(id)data_;
 
+- (id) valueForKey:(NSString *)key;
+
+- (void) setValue:(id)value forKey:(NSString *)key;
+
 @end

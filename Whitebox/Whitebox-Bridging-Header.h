@@ -15,3 +15,4 @@
 #import "ImageFileCapture.h"
 #import "SharedContextKeys.h"
 #import "PluginManager.h"
+#import "Settings.h"

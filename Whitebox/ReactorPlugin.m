@@ -20,19 +20,19 @@
 }
 
 - (PMKPromise *) run:(ReactorData *)event_data {
+    NSLog(@"You ran into a stub run method.");
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
 }
 
-- (BOOL) canHandleEvent:(int)event_id {
+- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data {
     // Should be overriden in child classes
     return NO;
 }
 
-- (BOOL) canProceed:(ReactorData *)event_data {
-    // Should be overriden in child classes
-    return NO;
+- (NSString *) signature {
+    return [self className];
 }
 
 @end

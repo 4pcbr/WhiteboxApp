@@ -10,19 +10,112 @@
 
 @implementation LocalFileStoragePlugin
 
-- (BOOL) canHandleEvent:(int)event_id {
-    return event_id == RE_SCREEN_CAPTURE_CREATED;
-}
+- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data {
 
-- (BOOL) canProceed:(ReactorData *)event_data {
+    if (event_id != RE_SCREEN_CAPTURE_CREATED) {
+        NSLog(@"Don't know how to handle an event with this ID");
+        return NO;
+    };
     
     Capture *capture = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
     
+    NSLog(@"%@", capture);
+    
     if (!capture) {
+        NSLog(@"No capture in the reactor data provided");
         return NO;
     }
     
-    return capture.type.intValue == CAPTURE_TYPE_SCREEN_IMG;
+    if (capture.type.intValue != CAPTURE_TYPE_SCREEN_IMG) {
+        NSLog(@"Non-image type capture provided");
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (PMKPromise *) run:(ReactorData *)event_data {
+    NSLog(@"Store the local file");
+    
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        
+        Capture      *capture             = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
+        NSFileHandle *input_file          = [event_data valueForKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        NSString     *yyyymmddhhiiss_name = [event_data valueForKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
+        NSString     *file_ext            = [Settings valueForPathKey:@"Capture.Screen.FileExtension"];
+        
+        if (yyyymmddhhiiss_name == NULL) {
+            yyyymmddhhiiss_name = [Utils yyyymmddhhiiss];
+        }
+        
+        NSString *file_name = [self filePathFor:
+                                    [NSString stringWithFormat:@"%@.%@",
+                                        yyyymmddhhiiss_name,
+                                        file_ext]
+                               ];
+        NSString *destination_folder = [(NSString *)[self->options valueForKey:@"StorePath"] stringByStandardizingPath];
+        
+        NSError *create_folder_error;
+        
+        BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:destination_folder withIntermediateDirectories:YES attributes:nil error:&create_folder_error];
+        
+        if (!success || create_folder_error) {
+            NSLog(@"Error creating folder %@", destination_folder);
+            return reject(create_folder_error);
+        }
+        
+        NSFileHandle *output_file = [NSFileHandle fileHandleForWritingAtPath:file_name];
+        
+        if (output_file == nil) {
+            [[NSFileManager defaultManager] createFileAtPath:file_name contents:nil attributes:nil];
+            output_file = [NSFileHandle fileHandleForWritingAtPath:file_name];
+        }
+        NSString *failed_assert_msg = [NSString stringWithFormat:@"Failed to create the destination file, %@", file_name];
+        NSAssert(output_file != nil, failed_assert_msg);
+        
+        NSLog(@"The file name: %@", file_name);
+        
+        NSAssert(input_file != nil, @"Input file handle can not be nil");
+        
+        NSData *buffer;
+        
+        @try {
+            [input_file seekToFileOffset:0];
+            [output_file seekToFileOffset:0];
+            
+            while ([(buffer = [input_file readDataOfLength:1024]) length] > 0) {
+                [output_file writeData:buffer];
+            }
+            NSLog(@"Done copying the file");
+            
+            NSDictionary *capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+               file_name, @"meta",
+               [self signature], @"provider",
+               [NSNumber numberWithInt:CAPTURE_DATA_STATUS_OK ], @"status",
+               nil
+            ];
+            
+            NSLog(@"CaptureData dictionary: %@", capture_data_dict);
+            
+            [capture addCaptureDataFromDictionary:capture_data_dict];
+        }
+        @catch (NSException *exception) {
+            @throw;
+        }
+        @finally {
+            [input_file seekToFileOffset:0];
+            [output_file closeFile];
+            fulfill(capture);
+        }
+    }];
+}
+
+- (NSString *)filePathFor:(NSString *)file_name {
+    NSString *destination_folder = [(NSString *)[self->options valueForKey:@"StorePath"] stringByStandardizingPath];
+    NSString *file_path = [[NSString stringWithFormat:@"%@/%@",
+                           destination_folder,
+                           file_name] stringByStandardizingPath];
+    return file_path;
 }
 
 @end

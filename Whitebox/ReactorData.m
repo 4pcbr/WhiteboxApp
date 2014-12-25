@@ -18,4 +18,12 @@
     return self;
 }
 
+- (id) valueForKey:(NSString *)key {
+    return [self.data valueForKey:key];
+}
+
+- (void) setValue:(id)value forKey:(NSString *)key {
+    [self.data setValue:value forKey:key];
+}
+
 @end

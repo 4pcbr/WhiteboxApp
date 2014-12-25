@@ -10,6 +10,9 @@
 #import "ReactorEvents.h"
 #import "ReactorData.h"
 #import "SharedContextKeys.h"
+#import "Utils.h"
+#import "Settings.h"
+#import "CaptureData.h"
 
 @interface LocalFileStoragePlugin : ReactorPlugin
 

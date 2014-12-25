@@ -18,12 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     let defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     var statusBarItem   : NSStatusItem = NSStatusItem()
     let plugin_reactor  : Reactor      = Reactor()
-    var plugins         : NSArray {
-        // TODO
-        let FIX_ME_settings : NSDictionary = NSDictionary()
-        PluginManager.initPlugins(FIX_ME_settings);
-        return PluginManager.plugins()
-    }
     
     @IBAction func captureScreen(sender: AnyObject) {
         let options = NSDictionary()
@@ -49,8 +43,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initSettings();
         initMenuIcon()
         initPlugins()
+        registerPlugins()
+    }
+    
+    // MARK: - Init global settings
+    
+    func initSettings() {
+        NSLog("Will init the global settings");
+        let options : NSDictionary = NSDictionary(
+            contentsOfFile: NSBundle.mainBundle().pathForResource("Settings", ofType: "plist")!
+        )!
+        Settings.setOptions(options);
+        NSLog("Done initing the global settings");
+    }
+    
+    // MARK: - Init plugins
+    
+    func initPlugins() {
+        NSLog("Will init plugins")
+        let plugin_settings : NSDictionary = NSDictionary(
+            contentsOfFile: NSBundle.mainBundle().pathForResource("StoragePlugins", ofType: "plist")!
+            )!
+        NSLog("Plugin settings: %@", plugin_settings)
+        PluginManager.initPlugins(plugin_settings);
+        NSLog("Done initing plugins")
+    }
+    
+    func registerPlugins() {
+        NSLog("Will register plugins in the reactor")
+        for item in PluginManager.plugins() {
+            let plugin : ReactorPlugin = item as ReactorPlugin
+            NSLog("Registering %@", _stdlib_getTypeName(item))
+            plugin_reactor.registerPlugin(plugin)
+        }
+        NSLog("Done registering plugins in the reactor")
     }
     
     // MARK: - Inteface build section
@@ -62,14 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
         statusBarItem.menu = menu
     }
 
-    // MARK: - Plugin init section
-    
-    func initPlugins() {
-        NSLog("%@", self.plugins)
-        
-        // TODO
-    }
-    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -82,6 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("Whitebox", withExtension: "momd")!
+        NSLog("ModelURL: %@", modelURL)
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -109,6 +131,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
         if !shouldFail && (error == nil) {
             coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
             let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Whitebox.storedata")
+            NSLog("Storage url: %@", url)
             if coordinator!.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
                 coordinator = nil
             }
@@ -209,13 +232,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     // ScreenCaprureDelegate protocol section
     
     func screenGrabberComplete(handle: NSFileHandle?) {
+        
         if handle === nil { return }
+        
         let capture : Capture = NSEntityDescription.insertNewObjectForEntityForName("Capture", inManagedObjectContext: managedObjectContext!) as Capture
+        
+        capture.type = NSNumber(int: CAPTURE_TYPE_SCREEN_IMG)
+        capture.created_at = NSDate()
+        
+        NSLog("Capture: %@", capture)
+        
         let shared_context : NSMutableDictionary = NSMutableDictionary(objectsAndKeys:
                 capture, SHRD_CTX_CAPTURE_MNGD_OBJ,
                 handle!, SHRD_CTX_TMP_FILE_HANDLE
         )
+        
         let reactor_data : ReactorData = ReactorData(data: shared_context)
+        
         plugin_reactor.emitEvent(RE_SCREEN_CAPTURE_CREATED, data: reactor_data, delegate: self)
     }
     
@@ -232,7 +265,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     
     
     func reactorComplete(data: NSData!) {
-        
+        NSLog("Reactor complete")
+        self.saveAction(nil)
     }
     
     func reactorFail(error: NSError!) {
