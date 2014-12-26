@@ -67,12 +67,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     // MARK: - Build view
     
     func buildMenuItemView() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadMenuItemView", name: "CaptureListDidChange", object: nil)
+        self.reloadMenuItemView()
+    }
+    
+    func reloadMenuItemView() {
         let capture_list : NSArray   = loadRecentCaptures(FETCH_LIMIT)
         capture_list_vc.capture_list = capture_list
         capture_list_vc.plugins      = PluginManager.plugins()
-        
-        NSLog("%@", capture_list_vc.plugins)
-        
         capture_list_vc.captureListDidChange(nil)
     }
     
@@ -207,6 +209,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
             if moc.hasChanges && !moc.save(&error) {
                 NSApplication.sharedApplication().presentError(error!)
             }
+        NSNotificationCenter.defaultCenter().postNotificationName("CaptureListDidChange", object: nil)
         }
     }
 

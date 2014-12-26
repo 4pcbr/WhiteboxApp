@@ -201,6 +201,15 @@
 			name = ViewBuilder;
 			sourceTree = "<group>";
 		};
+		5D636C911A4E24E00001A901 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5D636C881A4E03AC0001A901 /* CaptureMenuListViewController.h */,
+				5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		5D79F6F41A051FE400BDB73F = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +233,7 @@
 		5D79F6FF1A051FE400BDB73F /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				5D636C911A4E24E00001A901 /* ViewController */,
 				5D636C8E1A4E1AA40001A901 /* ViewBuilder */,
 				5D09B80B1A22731500E1DB25 /* Plugins */,
 				5D3B18FE1A13F9140063DD46 /* Core */,
@@ -235,8 +245,6 @@
 				5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */,
 				5D3B18FF1A13F9470063DD46 /* Whitebox-Bridging-Header.h */,
 				5D79F7001A051FE400BDB73F /* Supporting Files */,
-				5D636C881A4E03AC0001A901 /* CaptureMenuListViewController.h */,
-				5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */,
 			);
 			path = Whitebox;
 			sourceTree = "<group>";
