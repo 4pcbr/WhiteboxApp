@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Whitebox" customModuleProvider="target">
             <connections>
+                <outlet property="capture_list_vc" destination="rm8-jo-zib" id="IWg-VH-KkG"/>
                 <outlet property="menu" destination="Lg1-Lh-rlv" id="G9y-ge-BRk"/>
                 <outlet property="settingsWindow" destination="yhB-qj-iet" id="1qn-cU-qt2"/>
             </connections>
@@ -98,5 +99,10 @@
             </view>
             <point key="canvasLocation" x="294" y="385"/>
         </window>
+        <viewController id="rm8-jo-zib" customClass="CaptureMenuListViewController">
+            <connections>
+                <outlet property="anchor_menu_item" destination="JOh-Nw-B4D" id="UxW-lS-iwr"/>
+            </connections>
+        </viewController>
     </objects>
 </document>

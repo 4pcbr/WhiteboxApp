@@ -1,5 +1,5 @@
 //
-//  Settings.h
+//  WhiteBox.h
 //  Whitebox
 //
 //  Created by Olegs on 25/12/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Settings : NSObject
+@interface WhiteBox : NSObject
 
 + (void) setOptions:(NSDictionary *)options;
 

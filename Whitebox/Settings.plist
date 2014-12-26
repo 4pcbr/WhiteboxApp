@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>View</key>
+	<dict>
+		<key>Menu</key>
+		<dict>
+			<key>Date</key>
+			<dict>
+				<key>Format</key>
+				<string>MMM dd, HH:mm:ss</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>Capture</key>
 	<dict>
 		<key>Screen</key>

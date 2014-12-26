@@ -1,23 +1,23 @@
 //
-//  Settings.m
+//  WhiteBox.m
 //  Whitebox
 //
 //  Created by Olegs on 25/12/14.
 //  Copyright (c) 2014 Brand New Heroes. All rights reserved.
 //
 
-#import "Settings.h"
+#import "WhiteBox.h"
 
 #define KEY_SEPARATOR "."
 
-@implementation Settings {
+@implementation WhiteBox {
     NSMutableDictionary *options;
 }
 
-Settings *_instance;
-+ (Settings *) instance {
+WhiteBox *_instance;
++ (WhiteBox *) instance {
     if (_instance == NULL) {
-        _instance = [[Settings alloc] init];
+        _instance = [[WhiteBox alloc] init];
     }
     return _instance;
 }

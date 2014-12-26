@@ -42,7 +42,7 @@
         Capture      *capture             = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
         NSFileHandle *input_file          = [event_data valueForKey:@SHRD_CTX_TMP_FILE_HANDLE];
         NSString     *yyyymmddhhiiss_name = [event_data valueForKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
-        NSString     *file_ext            = [Settings valueForPathKey:@"Capture.Screen.FileExtension"];
+        NSString     *file_ext            = [WhiteBox valueForPathKey:@"Capture.Screen.FileExtension"];
         
         if (yyyymmddhhiiss_name == NULL) {
             yyyymmddhhiiss_name = [Utils yyyymmddhhiiss];

@@ -12,14 +12,16 @@
 		5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */; };
 		5D07F9031A4C6F480004BF69 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9021A4C6F480004BF69 /* Utils.m */; };
 		5D07F9051A4C72560004BF69 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F9041A4C72560004BF69 /* Settings.plist */; };
-		5D07F9081A4C73D60004BF69 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9071A4C73D60004BF69 /* Settings.m */; };
+		5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9071A4C73D60004BF69 /* WhiteBox.m */; };
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
 		5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */; };
 		5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86D1A2A7D8B006C1222 /* Reactor.m */; };
 		5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */; };
-		5D5FB8761A2A7ED4006C1222 /* ImageFileCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */; };
+		5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */; };
+		5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */; };
+		5D636C901A4E23860001A901 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D636C8F1A4E23860001A901 /* Localizable.strings */; };
 		5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7021A051FE400BDB73F /* AppDelegate.swift */; };
 		5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */; };
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
@@ -49,8 +51,8 @@
 		5D07F9011A4C6F480004BF69 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		5D07F9021A4C6F480004BF69 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		5D07F9041A4C72560004BF69 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
-		5D07F9061A4C73D60004BF69 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		5D07F9071A4C73D60004BF69 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5D07F9061A4C73D60004BF69 /* WhiteBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteBox.h; sourceTree = "<group>"; };
+		5D07F9071A4C73D60004BF69 /* WhiteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteBox.m; sourceTree = "<group>"; };
 		5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileStoragePlugin.h; sourceTree = "<group>"; };
 		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
@@ -67,9 +69,12 @@
 		5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactorData.m; sourceTree = "<group>"; };
 		5D5FB8701A2A7D8B006C1222 /* ReactorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorDelegate.h; sourceTree = "<group>"; };
 		5D5FB8711A2A7D8B006C1222 /* ReactorEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorEvents.h; sourceTree = "<group>"; };
-		5D5FB8741A2A7ED4006C1222 /* ImageFileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFileCapture.h; sourceTree = "<group>"; };
-		5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFileCapture.m; sourceTree = "<group>"; };
 		5D5FB8771A2A8571006C1222 /* SharedContextKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedContextKeys.h; sourceTree = "<group>"; };
+		5D636C881A4E03AC0001A901 /* CaptureMenuListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureMenuListViewController.h; sourceTree = "<group>"; };
+		5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureMenuListViewController.m; sourceTree = "<group>"; };
+		5D636C8B1A4E17AE0001A901 /* CaptureViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewBuilder.h; sourceTree = "<group>"; };
+		5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewBuilder.m; sourceTree = "<group>"; };
+		5D636C8F1A4E23860001A901 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5D79F6FD1A051FE400BDB73F /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7011A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7021A051FE400BDB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,15 +170,35 @@
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D636C861A4CD2BB0001A901 /* Misc */,
 				5D07F9001A4C44420004BF69 /* Plugin */,
 				5D07F8FF1A4C442F0004BF69 /* Reactor */,
 				5D07F8F81A42483B0004BF69 /* Processable.h */,
 				5D07F8F51A4247650004BF69 /* PromiseQueue.h */,
 				5D07F8F61A4247650004BF69 /* PromiseQueue.m */,
 				5D876DE41A2280A800EBFB2B /* Grabber */,
-				5D876DE11A227DC200EBFB2B /* Capture */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		5D636C861A4CD2BB0001A901 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				5D07F9011A4C6F480004BF69 /* Utils.h */,
+				5D07F9021A4C6F480004BF69 /* Utils.m */,
+				5D07F9061A4C73D60004BF69 /* WhiteBox.h */,
+				5D07F9071A4C73D60004BF69 /* WhiteBox.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		5D636C8E1A4E1AA40001A901 /* ViewBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5D636C8B1A4E17AE0001A901 /* CaptureViewBuilder.h */,
+				5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */,
+			);
+			name = ViewBuilder;
 			sourceTree = "<group>";
 		};
 		5D79F6F41A051FE400BDB73F = {
@@ -199,6 +224,7 @@
 		5D79F6FF1A051FE400BDB73F /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				5D636C8E1A4E1AA40001A901 /* ViewBuilder */,
 				5D09B80B1A22731500E1DB25 /* Plugins */,
 				5D3B18FE1A13F9140063DD46 /* Core */,
 				5D7E8A581A0AE567000AD8BD /* Model */,
@@ -209,10 +235,8 @@
 				5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */,
 				5D3B18FF1A13F9470063DD46 /* Whitebox-Bridging-Header.h */,
 				5D79F7001A051FE400BDB73F /* Supporting Files */,
-				5D07F9011A4C6F480004BF69 /* Utils.h */,
-				5D07F9021A4C6F480004BF69 /* Utils.m */,
-				5D07F9061A4C73D60004BF69 /* Settings.h */,
-				5D07F9071A4C73D60004BF69 /* Settings.m */,
+				5D636C881A4E03AC0001A901 /* CaptureMenuListViewController.h */,
+				5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */,
 			);
 			path = Whitebox;
 			sourceTree = "<group>";
@@ -220,6 +244,7 @@
 		5D79F7001A051FE400BDB73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D636C8F1A4E23860001A901 /* Localizable.strings */,
 				5D79F7011A051FE400BDB73F /* Info.plist */,
 				5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */,
 				5D07F9041A4C72560004BF69 /* Settings.plist */,
@@ -253,15 +278,6 @@
 				5D3B19071A1402050063DD46 /* Capture.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		5D876DE11A227DC200EBFB2B /* Capture */ = {
-			isa = PBXGroup;
-			children = (
-				5D5FB8741A2A7ED4006C1222 /* ImageFileCapture.h */,
-				5D5FB8751A2A7ED4006C1222 /* ImageFileCapture.m */,
-			);
-			name = Capture;
 			sourceTree = "<group>";
 		};
 		5D876DE41A2280A800EBFB2B /* Grabber */ = {
@@ -365,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D636C901A4E23860001A901 /* Localizable.strings in Resources */,
 				5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */,
 				5D07F9051A4C72560004BF69 /* Settings.plist in Resources */,
 				5D79F70B1A051FE400BDB73F /* MainMenu.xib in Resources */,
@@ -425,13 +442,14 @@
 				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
 				5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
-				5D07F9081A4C73D60004BF69 /* Settings.m in Sources */,
+				5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
 				5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */,
 				5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */,
 				5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */,
+				5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */,
 				5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */,
-				5D5FB8761A2A7ED4006C1222 /* ImageFileCapture.m in Sources */,
+				5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@
 #import "ReactorData.h"
 #import "SharedContextKeys.h"
 #import "Utils.h"
-#import "Settings.h"
+#import "WhiteBox.h"
 #import "CaptureData.h"
 
 @interface LocalFileStoragePlugin : ReactorPlugin

@@ -13,11 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
 
     @IBOutlet weak var menu           : NSMenu!
     @IBOutlet weak var settingsWindow : NSWindow!
+    @IBOutlet weak var capture_list_vc: CaptureMenuListViewController!
 
     let statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
     let defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     var statusBarItem   : NSStatusItem = NSStatusItem()
     let plugin_reactor  : Reactor      = Reactor()
+//    let capture_list_vc : CaptureMenuListViewController = CaptureMenuListViewController(nibName: nil, bundle: nil)!
+    
+    let FETCH_LIMIT     : Int          = 10
     
     @IBAction func captureScreen(sender: AnyObject) {
         let options = NSDictionary()
@@ -43,10 +47,37 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        initSettings();
+        initSettings()
         initMenuIcon()
         initPlugins()
         registerPlugins()
+        buildMenuItemView()
+        buildSettingsView()
+    }
+    
+    // MARK: - Fetch last N items
+    
+    func loadRecentCaptures(fetch_limit : Int) -> NSArray {
+        let request : NSFetchRequest = NSFetchRequest(entityName: "Capture")
+        request.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
+        request.fetchLimit = fetch_limit
+        return managedObjectContext!.executeFetchRequest(request, error: nil)!
+    }
+    
+    // MARK: - Build view
+    
+    func buildMenuItemView() {
+        let capture_list : NSArray   = loadRecentCaptures(FETCH_LIMIT)
+        capture_list_vc.capture_list = capture_list
+        capture_list_vc.plugins      = PluginManager.plugins()
+        
+        NSLog("%@", capture_list_vc.plugins)
+        
+        capture_list_vc.captureListDidChange(nil)
+    }
+    
+    func buildSettingsView() {
+        // TODO
     }
     
     // MARK: - Init global settings
@@ -56,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
         let options : NSDictionary = NSDictionary(
             contentsOfFile: NSBundle.mainBundle().pathForResource("Settings", ofType: "plist")!
         )!
-        Settings.setOptions(options);
+        WhiteBox.setOptions(options);
         NSLog("Done initing the global settings");
     }
     
@@ -270,7 +301,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     }
     
     func reactorFail(error: NSError!) {
-        
+        // TODO
     }
     
     func reactorFinally() {
