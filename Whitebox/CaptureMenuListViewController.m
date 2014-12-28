@@ -25,8 +25,6 @@
 
 - (IBAction)captureListDidChange:(id)sender {
 
-    NSLog(@"Bang!");
-
     if (self.capture_list == NULL) {
         NSLog(@"No capture list provided, exiting now.");
         return;

@@ -118,4 +118,13 @@
     return file_path;
 }
 
+- (id<ReactorPluginViewBuilder>) getViewBuilder {
+    
+    if (self->view_builder == NULL) {
+        self->view_builder = [[LocalFileViewBuilder alloc] init];
+    }
+    
+    return self->view_builder;
+}
+
 @end

@@ -22,6 +22,7 @@
 		5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */; };
 		5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */; };
 		5D636C901A4E23860001A901 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D636C8F1A4E23860001A901 /* Localizable.strings */; };
+		5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */; };
 		5D79F7031A051FE400BDB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7021A051FE400BDB73F /* AppDelegate.swift */; };
 		5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */; };
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
@@ -75,6 +76,8 @@
 		5D636C8B1A4E17AE0001A901 /* CaptureViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewBuilder.h; sourceTree = "<group>"; };
 		5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewBuilder.m; sourceTree = "<group>"; };
 		5D636C8F1A4E23860001A901 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5D636C971A50B6FE0001A901 /* LocalFileViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileViewBuilder.h; sourceTree = "<group>"; };
+		5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileViewBuilder.m; sourceTree = "<group>"; };
 		5D79F6FD1A051FE400BDB73F /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7011A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7021A051FE400BDB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		5D07F8FE1A4C43270004BF69 /* LocalFileStoragePlugin */ = {
 			isa = PBXGroup;
 			children = (
+				5D636C921A4F82970001A901 /* ViewBuilder */,
 				5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */,
 				5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */,
 			);
@@ -208,6 +212,15 @@
 				5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		5D636C921A4F82970001A901 /* ViewBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5D636C971A50B6FE0001A901 /* LocalFileViewBuilder.h */,
+				5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */,
+			);
+			name = ViewBuilder;
 			sourceTree = "<group>";
 		};
 		5D79F6F41A051FE400BDB73F = {
@@ -458,6 +471,7 @@
 				5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */,
 				5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */,
 				5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */,
+				5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

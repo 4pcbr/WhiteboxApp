@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
     let defaultMenuIcon : NSImage      = NSImage(named: "MenuIcon")!
     var statusBarItem   : NSStatusItem = NSStatusItem()
     let plugin_reactor  : Reactor      = Reactor()
-//    let capture_list_vc : CaptureMenuListViewController = CaptureMenuListViewController(nibName: nil, bundle: nil)!
     
     let FETCH_LIMIT     : Int          = 10
     

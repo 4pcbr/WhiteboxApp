@@ -31,6 +31,12 @@
     return NO;
 }
 
+- (id<ReactorPluginViewBuilder>) getViewBuilder {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
+}
+
 - (NSString *) signature {
     return [self className];
 }

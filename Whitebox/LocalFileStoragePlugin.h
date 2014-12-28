@@ -13,6 +13,7 @@
 #import "Utils.h"
 #import "WhiteBox.h"
 #import "CaptureData.h"
+#import "LocalFileViewBuilder.h"
 
 @interface LocalFileStoragePlugin : ReactorPlugin
 
