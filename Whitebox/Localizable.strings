@@ -7,3 +7,4 @@
 */
 "CAPTURE_RECENTS"    = "Recent captures";
 "CAPTURE_NO_RECENTS" = "No recent captures";
+"REVEAL_IN_FINDER"   = "Reveal in Finder";

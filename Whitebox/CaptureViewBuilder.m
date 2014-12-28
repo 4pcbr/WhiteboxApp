@@ -20,12 +20,29 @@
             [date_formatter setDateFormat:[WhiteBox valueForPathKey:@"View.Menu.Date.Format"]];
             NSString *title = [date_formatter stringFromDate:created_at];
             menu_item.title = title;
+            NSMenu *sub_menu = [self buildSubMenu:capture];
+            [menu_item setSubmenu:sub_menu];
             break;
 //        default:
 //            break;
     }
     
     return menu_item;
+}
+
++ (NSMenu *) buildSubMenu:(Capture *)capture {
+    NSMenu *sub_menu = [[NSMenu alloc] init];
+    [sub_menu setAutoenablesItems:YES];
+    for (ReactorPlugin *plugin in [PluginManager plugins]) {
+        if ([plugin isEnabled]) {
+            id<ReactorPluginViewBuilder> view_builder = [plugin getViewBuilder];
+            if ([view_builder hasMenuItem:capture]) {
+                NSMenuItem *sub_menu_item = [view_builder buildMenuItem:capture];
+                [sub_menu addItem:sub_menu_item];
+            }
+        }
+    }
+    return sub_menu;
 }
 
 @end

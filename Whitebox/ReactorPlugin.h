@@ -34,6 +34,12 @@
 
 - (id) initPluginWithOptions:(NSDictionary *)options;
 
+- (BOOL) isEnabled;
+
+- (void) enable;
+
+- (void) disable;
+
 - (PMKPromise *) run:(ReactorData *)event_data;
 
 - (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data;

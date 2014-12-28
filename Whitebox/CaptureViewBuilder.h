@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/NSMenu.h>
 #import <AppKit/NSMenuItem.h>
 #import "Capture.h"
 #import "CaptureData.h"
 #import "WhiteBox.h"
+#import "ReactorPlugin.h"
+#import "PluginManager.h"
 
 @interface CaptureViewBuilder : NSObject
 
