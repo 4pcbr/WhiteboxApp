@@ -28,5 +28,6 @@
 - (void) removeCapture_data:(NSSet *)values;
 
 - (void) addCaptureDataFromDictionary:(NSDictionary *)dictionary;
+- (CaptureData *)getCaptureDataInstanceWithPredicate:(NSPredicate *)predicate;
 
 @end

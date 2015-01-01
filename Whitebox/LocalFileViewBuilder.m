@@ -19,11 +19,22 @@
     menu_item.title = NSLocalizedString(@"REVEAL_IN_FINDER", nil);
     menu_item.action = @selector(menuItemDidClick:);
     menu_item.target = self;
+    menu_item.representedObject = capture;
     return menu_item;
 }
 
 - (void)menuItemDidClick:(id)sender {
-    
+    Capture *capture = (Capture *)[sender representedObject];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"provider=\"LocalFileStoragePlugin\""];
+    CaptureData *capture_data = [capture getCaptureDataInstanceWithPredicate:predicate];
+    if (capture_data != nil) {
+        NSString *meta = [capture_data meta];
+        if (meta != nil) {
+            NSURL *file_URL = [NSURL fileURLWithPath:meta];
+            NSArray *file_URLs = [NSArray arrayWithObjects:file_URL, nil];
+            [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:file_URLs];
+        }
+    }
 }
 
 @end

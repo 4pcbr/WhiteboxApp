@@ -23,4 +23,14 @@
     return [self addCapture_dataObject:capture_data];
 }
 
+- (CaptureData *)getCaptureDataInstanceWithPredicate:(NSPredicate *)original_predicate {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CaptureData"];
+    NSPredicate *id_match_predicate = [NSPredicate predicateWithFormat:@"self.capture=%@", self];
+    NSArray *predicates = [NSArray arrayWithObjects: original_predicate, id_match_predicate, nil];
+    [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates: predicates]];
+    NSError *error = nil;
+    
+    return [[[self managedObjectContext] executeFetchRequest:request error:&error] firstObject];
+}
+
 @end

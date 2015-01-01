@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ReactorPlugin.h"
+#import "CaptureData.h"
 
 @interface LocalFileViewBuilder : NSObject <ReactorPluginViewBuilder>
 
