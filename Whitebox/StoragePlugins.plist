@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>RESTStoragePlugin</key>
+	<dict>
+		<key>ScriptFilePath</key>
+		<string>RESTStoragePlugin.js</string>
+		<key>ParamName</key>
+		<string>upload[file]</string>
+		<key>Path</key>
+		<string>/uploads</string>
+		<key>Host</key>
+		<string>i.4pcbr.com</string>
+		<key>Scheme</key>
+		<string>http</string>
+		<key>Enabled</key>
+		<true/>
+	</dict>
 	<key>LocalFileStoragePlugin</key>
 	<dict>
 		<key>StorePath</key>

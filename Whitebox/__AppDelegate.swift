@@ -7,12 +7,14 @@
 //
 
 import Cocoa
+import WebKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, ReactorDelegate {
 
     @IBOutlet weak var menu           : NSMenu!
     @IBOutlet weak var settingsWindow : NSWindow!
+    @IBOutlet weak var js_web_view_sb : WebView!
     @IBOutlet weak var capture_list_vc: CaptureMenuListViewController!
 
     let statusBar       : NSStatusBar  = NSStatusBar.systemStatusBar()
@@ -89,6 +91,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
             contentsOfFile: NSBundle.mainBundle().pathForResource("Settings", ofType: "plist")!
         )!
         WhiteBox.setOptions(options);
+        NSLog("%@", self.js_web_view_sb)
+        WhiteBox.setValue(self.js_web_view_sb, forPathKey: "Sandbox.Web.JS")
+
         NSLog("Done initing the global settings");
     }
     
@@ -276,8 +281,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ScreenGrabberDelegate, React
         NSLog("Capture: %@", capture)
         
         let shared_context : NSMutableDictionary = NSMutableDictionary(objectsAndKeys:
-                capture, SHRD_CTX_CAPTURE_MNGD_OBJ,
-                handle!, SHRD_CTX_TMP_FILE_HANDLE
+            capture, SHRD_CTX_CAPTURE_MNGD_OBJ,
+            handle!, SHRD_CTX_TMP_FILE_HANDLE
         )
         
         let reactor_data : ReactorData = ReactorData(data: shared_context)

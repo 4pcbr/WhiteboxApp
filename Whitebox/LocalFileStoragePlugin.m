@@ -46,6 +46,7 @@
         
         if (yyyymmddhhiiss_name == NULL) {
             yyyymmddhhiiss_name = [Utils yyyymmddhhiiss];
+            [event_data setValue:yyyymmddhhiiss_name forKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
         }
         
         NSString *file_name = [self filePathFor:

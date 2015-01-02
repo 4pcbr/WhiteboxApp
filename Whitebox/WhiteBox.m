@@ -35,6 +35,9 @@ WhiteBox *_instance;
     int path_len = (int)[path_key_chain count];
     id ptr = options;
     id prev_ptr = options;
+    
+    NSLog(@"Options: %@", options);
+    
     while (ix < path_len - 1) {
         ptr = [prev_ptr valueForKey:path_key_chain[ix]];
         if (ptr == NULL) {

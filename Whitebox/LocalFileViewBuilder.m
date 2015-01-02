@@ -31,8 +31,7 @@
         NSString *meta = [capture_data meta];
         if (meta != nil) {
             NSURL *file_URL = [NSURL fileURLWithPath:meta];
-            NSArray *file_URLs = [NSArray arrayWithObjects:file_URL, nil];
-            [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:file_URLs];
+            [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:[NSArray arrayWithObjects:file_URL, nil]];
         }
     }
 }

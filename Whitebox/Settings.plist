@@ -17,6 +17,8 @@
 	<dict>
 		<key>Screen</key>
 		<dict>
+			<key>ContentType</key>
+			<string>image/png</string>
 			<key>FileExtension</key>
 			<string>png</string>
 		</dict>

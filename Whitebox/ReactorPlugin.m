@@ -7,7 +7,6 @@
 //
 
 #import "ReactorPlugin.h"
-#import "Whitebox-Swift.h"
 
 #define PLUGIN_OPTS_KEY_ENABLED "Enabled"
 

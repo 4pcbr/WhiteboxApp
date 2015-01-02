@@ -13,6 +13,7 @@
 - (id) init {
     if (self = [super init]) {
         self->plugins = [[NSMutableArray alloc] init];
+        self->event_data_arr = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -27,6 +28,7 @@
 }
 
 - (PMKPromise *) emitEvent:(int)event_id data:(ReactorData *)event_data {
+    [self->event_data_arr addObject:event_data];
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         
         NSLog(@"Reactor event emited: id: %i, data: %@", event_id, event_data);
@@ -54,6 +56,8 @@
             fulfill(data);
         }).catch(^(NSError *error) {
             reject(error);
+        }).finally(^{
+            [self->event_data_arr removeObject:event_data];
         });
     }];
 }

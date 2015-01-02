@@ -15,6 +15,7 @@
 
 @interface Reactor : NSObject {
     NSMutableArray *plugins;
+    NSMutableArray *event_data_arr;
 }
 
 - (void) registerPlugin:(ReactorPlugin *)plugin;
