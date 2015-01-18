@@ -36,8 +36,6 @@ WhiteBox *_instance;
     id ptr = options;
     id prev_ptr = options;
     
-    NSLog(@"Options: %@", options);
-    
     while (ix < path_len - 1) {
         ptr = [prev_ptr valueForKey:path_key_chain[ix]];
         if (ptr == NULL) {
@@ -58,13 +56,11 @@ WhiteBox *_instance;
 
 + (id) valueForPathKey:(NSString *)path_key {
     NSArray *path_key_chain = [self pathKeyChain:path_key];
-    NSLog(@"Path key chain: %@", path_key_chain);
     NSDictionary *options = [self instance]->options;
     int ix = 0;
     int path_len = (int)[path_key_chain count];
     id ptr = options;
     while (ix < path_len) {
-        NSLog(@"Testing component: %@ at the index: %i", path_key_chain[ix], ix);
         ptr = [ptr valueForKey:path_key_chain[ix]];
         if (ptr == NULL) {
             break;

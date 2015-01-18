@@ -11,6 +11,9 @@ target "Whitebox" do
 end
 
 target "WhiteboxTests" do
-
+    pod "PromiseKit"
+    pod "PromiseKit/NSTask"
+    pod "ASIHTTPRequest"
+    pod "PromiseKit-AFNetworking"
 end
 
