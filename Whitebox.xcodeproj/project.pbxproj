@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0501F51A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0501F41A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m */; };
 		5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8F61A4247650004BF69 /* PromiseQueue.m */; };
 		5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8FA1A43966D0004BF69 /* PluginManager.m */; };
 		5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */; };
@@ -16,6 +17,8 @@
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
+		5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */; };
+		5D4EC0231A6716B000D3E5F0 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EC0221A6716B000D3E5F0 /* Session.m */; };
 		5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */; };
 		5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86D1A2A7D8B006C1222 /* Reactor.m */; };
 		5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5FB86F1A2A7D8B006C1222 /* ReactorData.m */; };
@@ -47,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0501F31A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequestWithSSID.h; sourceTree = "<group>"; };
+		5D0501F41A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequestWithSSID.m; sourceTree = "<group>"; };
 		5D07F8F51A4247650004BF69 /* PromiseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromiseQueue.h; sourceTree = "<group>"; };
 		5D07F8F61A4247650004BF69 /* PromiseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromiseQueue.m; sourceTree = "<group>"; };
 		5D07F8F81A42483B0004BF69 /* Processable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processable.h; sourceTree = "<group>"; };
@@ -65,6 +70,10 @@
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
 		5D3B19091A1402050063DD46 /* CaptureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureData.h; sourceTree = "<group>"; };
 		5D3B190A1A1402050063DD46 /* CaptureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureData.m; sourceTree = "<group>"; };
+		5D4EC01E1A67165D00D3E5F0 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
+		5D4EC0211A6716B000D3E5F0 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		5D4EC0221A6716B000D3E5F0 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		5D5FB8691A2A7D6E006C1222 /* ReactorPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactorPlugin.h; sourceTree = "<group>"; };
 		5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactorPlugin.m; sourceTree = "<group>"; };
 		5D5FB86C1A2A7D8B006C1222 /* Reactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reactor.h; sourceTree = "<group>"; };
@@ -132,6 +141,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D0501F21A6C49F500B9E4D8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				5D0501F31A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.h */,
+				5D0501F41A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
 		5D07F8FE1A4C43270004BF69 /* LocalFileStoragePlugin */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +204,8 @@
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D0501F21A6C49F500B9E4D8 /* Request */,
+				5D4EC01D1A67164400D3E5F0 /* Session */,
 				5D636C861A4CD2BB0001A901 /* Misc */,
 				5D07F9001A4C44420004BF69 /* Plugin */,
 				5D07F8FF1A4C442F0004BF69 /* Reactor */,
@@ -195,6 +215,17 @@
 				5D876DE41A2280A800EBFB2B /* Grabber */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		5D4EC01D1A67164400D3E5F0 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				5D4EC01E1A67165D00D3E5F0 /* SessionManager.h */,
+				5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */,
+				5D4EC0211A6716B000D3E5F0 /* Session.h */,
+				5D4EC0221A6716B000D3E5F0 /* Session.m */,
+			);
+			name = Session;
 			sourceTree = "<group>";
 		};
 		5D636C861A4CD2BB0001A901 /* Misc */ = {
@@ -520,14 +551,17 @@
 				5DACF9061A56968C000BB5F9 /* RESTStoragePlugin.m in Sources */,
 				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
+				5D0501F51A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m in Sources */,
 				5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
+				5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */,
 				5D5FB8721A2A7D8B006C1222 /* Reactor.m in Sources */,
 				5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */,
 				5D5FB86B1A2A7D6E006C1222 /* ReactorPlugin.m in Sources */,
 				5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */,
 				5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */,
 				5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */,
+				5D4EC0231A6716B000D3E5F0 /* Session.m in Sources */,
 				5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */,
 				5DACF9401A574BCF000BB5F9 /* main.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,
@@ -639,7 +673,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Whitebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -653,7 +687,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Whitebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

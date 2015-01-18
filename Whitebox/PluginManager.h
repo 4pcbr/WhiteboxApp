@@ -15,6 +15,6 @@
 
 + (BOOL) isInited;
 
-+ (NSArray *) plugins;
++ (NSHashTable *) plugins;
 
 @end

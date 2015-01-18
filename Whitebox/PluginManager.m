@@ -8,16 +8,27 @@
 
 #import "PluginManager.h"
 
-@implementation PluginManager
+@implementation PluginManager {
+    NSHashTable *plugins_;
+}
 
-static NSMutableArray *plugins_ = nil;
+static PluginManager* instance_;
+
++ (PluginManager *) instance {
+    if (!instance_) {
+        instance_ = [[self alloc] init];
+    }
+    
+    return instance_;
+}
 
 + (BOOL) isInited {
-    return plugins_ == nil;
+    return ([self instance]->plugins_ != nil);
 }
 
 + (void) initPlugins:(NSDictionary *)settings {
-    plugins_ = [[NSMutableArray alloc] init];
+    
+    NSHashTable *plugins_ = [[NSHashTable alloc] init];
     
     for (NSString *plugin_name in settings) {
         NSDictionary *plugin_options = (NSDictionary*)[settings valueForKey:plugin_name];
@@ -25,10 +36,12 @@ static NSMutableArray *plugins_ = nil;
         ReactorPlugin *plugin = [[klass alloc] initPluginWithOptions:plugin_options];
         [plugins_ addObject:plugin];
     }
+    
+    [self instance]->plugins_ = plugins_;
 }
 
-+ (NSArray *) plugins {
-    return plugins_;
++ (NSHashTable *) plugins {
+    return [self instance]->plugins_;
 }
 
 @end

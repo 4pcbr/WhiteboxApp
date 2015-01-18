@@ -14,7 +14,7 @@
 
 - (id)initWithDeferreds:(NSArray *)processables_ {
     if (self = [super init]) {
-        self->processables = [[NSMutableArray alloc] initWithArray:processables_];
+        self->processables = processables_;
         self->ptr = [self->processables objectEnumerator];
         NSLog(@"PromiseQueue has been inited with %lu elements", (unsigned long)[self->processables count]);
     }

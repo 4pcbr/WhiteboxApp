@@ -10,20 +10,22 @@
 
 @implementation ReactorData
 
-- (id) initWithData:(id)data_ {
+@synthesize data = data;
+
+- (id) initWithData:(id)_data {
     if (self = [super init]) {
-        self.data = data_;
+        self.data = _data;
     }
     
     return self;
 }
 
-- (id) valueForKey:(NSString *)key {
-    return [self.data valueForKey:key];
-}
-
-- (void) setValue:(id)value forKey:(NSString *)key {
-    [self.data setValue:value forKey:key];
-}
+//- (id) valueForKey:(NSString *)key {
+//    return [self.data objectForKey:key];
+//}
+//
+//- (void) setValue:(id)value forKey:(NSString *)key {
+//    [self.data setObject:value forKey:key];
+//}
 
 @end

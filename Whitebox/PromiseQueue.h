@@ -11,7 +11,7 @@
 #import "Processable.h"
 
 @interface PromiseQueue : NSObject <Processable> {
-    NSMutableArray *processables;
+    NSArray *processables;
 }
 
 - (id)initWithDeferreds:(NSArray *)processables_;

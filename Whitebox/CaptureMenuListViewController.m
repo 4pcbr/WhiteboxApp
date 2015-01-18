@@ -56,7 +56,7 @@
 }
 
 - (void) buildMenuItems {
-    NSMenu *menu = [anchor_menu_item menu];
+    NSMenu   *menu         = [anchor_menu_item menu];
     NSInteger anchor_index = [menu indexOfItem:anchor_menu_item];
     
     if (self->menu_items == NULL) {

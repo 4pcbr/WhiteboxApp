@@ -10,12 +10,12 @@
 
 @interface ReactorData : NSObject
 
-@property (strong, nonatomic) id data;
+@property (retain, strong, nonatomic) id data;
 
 - (id) initWithData:(id)data_;
 
-- (id) valueForKey:(NSString *)key;
-
-- (void) setValue:(id)value forKey:(NSString *)key;
+//- (id) valueForKey:(NSString *)key;
+//
+//- (void) setValue:(id)value forKey:(NSString *)key;
 
 @end

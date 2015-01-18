@@ -10,6 +10,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Reactor.h"
 #import "ReactorEvents.h"
+#import "SessionManager.h"
 #import "ScreenGrabber.h"
 #import "SharedContextKeys.h"
 #import <WebKit/WebView.h>

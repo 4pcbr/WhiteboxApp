@@ -10,14 +10,14 @@
 
 @implementation LocalFileStoragePlugin
 
-- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data {
+- (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {
 
     if (event_id != RE_SCREEN_CAPTURE_CREATED) {
         NSLog(@"Don't know how to handle an event with this ID");
         return NO;
     };
     
-    Capture *capture = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
+    Capture *capture = [[session context] valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
     
     NSLog(@"%@", capture);
     
@@ -34,11 +34,12 @@
     return YES;
 }
 
-- (PMKPromise *) run:(ReactorData *)event_data {
+- (PMKPromise *) run:(Session *)session {
     NSLog(@"Store the local file");
     
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         
+        NSDictionary *event_data          = [session context];
         Capture      *capture             = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
         NSFileHandle *input_file          = [event_data valueForKey:@SHRD_CTX_TMP_FILE_HANDLE];
         NSString     *yyyymmddhhiiss_name = [event_data valueForKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];

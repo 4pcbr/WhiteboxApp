@@ -12,6 +12,7 @@
 #import "Capture.h"
 #import "Processable.h"
 #import "ReactorData.h"
+#import "Session.h"
 
 @protocol ReactorPluginViewBuilder <NSObject>
 
@@ -26,7 +27,7 @@
 
 @interface ReactorPlugin : NSObject<Processable> {
     BOOL                         enabled;
-    NSDictionary                 * options;
+    NSDictionary                *options;
     id<ReactorPluginViewBuilder> view_builder;
 }
 
@@ -40,9 +41,9 @@
 
 - (void) disable;
 
-- (PMKPromise *) run:(ReactorData *)event_data;
+- (PMKPromise *) run:(Session *)session;
 
-- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data;
+- (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session;
 
 - (NSString *) signature;
 

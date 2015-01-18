@@ -12,18 +12,19 @@
 #import "ReactorData.h"
 #import "ReactorDelegate.h"
 #import "PromiseQueue.h"
+#import "Session.h"
+#import "SessionManager.h"
 
 @interface Reactor : NSObject {
-    NSMutableArray *plugins;
-    NSMutableArray *event_data_arr;
+    NSHashTable *plugins;
 }
 
 - (void) registerPlugin:(ReactorPlugin *)plugin;
 
 - (void) releasePlugin:(ReactorPlugin *)plugin;
 
-- (PMKPromise *) emitEvent:(int)event_id data:(ReactorData *)event_data;
+- (PMKPromise *) emitEvent:(int)event_id session:(Session *)session;
 
-- (void) emitEvent:(int)event_id data:(ReactorData *)event_data delegate:(id<ReactorDelegate>)delegate;
+- (void) emitEvent:(int)event_id session:(Session *)session delegate:(id<ReactorDelegate>)delegate;
 
 @end

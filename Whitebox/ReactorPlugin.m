@@ -39,14 +39,14 @@
     self->enabled = NO;
 }
 
-- (PMKPromise *) run:(ReactorData *)event_data {
+- (PMKPromise *) run:(Session *)session {
     NSLog(@"You ran into a stub run method.");
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
 }
 
-- (BOOL) canHandleEvent:(int)event_id withData:(ReactorData *)event_data {
+- (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {
     // Should be overriden in child classes
     return NO;
 }
