@@ -81,6 +81,7 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
+    
     NSLog(@"I'm in!");
     uint16 ssid = [(ASIFormDataRequestWithSSID *)request getSSID];
     NSLog(@"SSID: %i", ssid);
@@ -139,7 +140,7 @@
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
-    NSLog(@"Screw you guys!");
+    NSLog(@"Screw you guys! I'm going home.");
     PMKPromiseRejecter reject = [(ASIFormDataRequestWithSSID *)request getRejecter];
     reject(request.error);
 }
@@ -173,8 +174,12 @@
 }
 
 - (id<ReactorPluginViewBuilder>) getViewBuilder {
-    // TODO
-    return nil;
+    if (self->view_builder == NULL) {
+        RESTViewBuilder *vb = [[RESTViewBuilder alloc] init];
+        vb.hostname = [self->options objectForKey:@"Host"];
+        self->view_builder = vb;
+    }
+    return self->view_builder;
 }
 
 @end

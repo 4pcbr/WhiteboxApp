@@ -16,6 +16,7 @@
 #import "ReactorPlugin.h"
 #import "ReactorEvents.h"
 #import "ReactorData.h"
+#import "RESTViewBuilder.h"
 #import "SharedContextKeys.h"
 #import "SessionManager.h"
 #import "Utils.h"

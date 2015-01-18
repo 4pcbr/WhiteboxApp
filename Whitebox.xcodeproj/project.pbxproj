@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D0501F51A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0501F41A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m */; };
+		5D0501F81A6C547400B9E4D8 /* RESTViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0501F71A6C547400B9E4D8 /* RESTViewBuilder.m */; };
 		5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8F61A4247650004BF69 /* PromiseQueue.m */; };
 		5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8FA1A43966D0004BF69 /* PluginManager.m */; };
 		5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		5D0501F31A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequestWithSSID.h; sourceTree = "<group>"; };
 		5D0501F41A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequestWithSSID.m; sourceTree = "<group>"; };
+		5D0501F61A6C547400B9E4D8 /* RESTViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTViewBuilder.h; sourceTree = "<group>"; };
+		5D0501F71A6C547400B9E4D8 /* RESTViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTViewBuilder.m; sourceTree = "<group>"; };
 		5D07F8F51A4247650004BF69 /* PromiseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromiseQueue.h; sourceTree = "<group>"; };
 		5D07F8F61A4247650004BF69 /* PromiseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromiseQueue.m; sourceTree = "<group>"; };
 		5D07F8F81A42483B0004BF69 /* Processable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processable.h; sourceTree = "<group>"; };
@@ -369,6 +372,8 @@
 		5DACF9031A56962F000BB5F9 /* ViewBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				5D0501F61A6C547400B9E4D8 /* RESTViewBuilder.h */,
+				5D0501F71A6C547400B9E4D8 /* RESTViewBuilder.m */,
 			);
 			name = ViewBuilder;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
 				5DACF93E1A573A0A000BB5F9 /* AppDelegate.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
+				5D0501F81A6C547400B9E4D8 /* RESTViewBuilder.m in Sources */,
 				5DACF9061A56968C000BB5F9 /* RESTStoragePlugin.m in Sources */,
 				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,

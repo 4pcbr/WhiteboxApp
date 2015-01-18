@@ -112,7 +112,7 @@
     }];
 }
 
-- (NSString *)filePathFor:(NSString *)file_name {
+- (NSString *) filePathFor:(NSString *)file_name {
     NSString *destination_folder = [(NSString *)[self->options valueForKey:@"StorePath"] stringByStandardizingPath];
     NSString *file_path = [[NSString stringWithFormat:@"%@/%@",
                            destination_folder,

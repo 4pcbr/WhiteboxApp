@@ -144,6 +144,8 @@ static int FETCH_LIMIT = 10;
     if ([[self managedObjectContext] hasChanges] && ![[self managedObjectContext] save:&error]) {
         [[NSApplication sharedApplication] presentError:error];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CaptureListDidChange" object:nil];
 }
 
 - (IBAction)captureScreen:(id)sender {
