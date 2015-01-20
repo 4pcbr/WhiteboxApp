@@ -9,11 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "LocalFileStoragePlugin.h"
 #import <PromiseKit/Promise.h>
+#import <OCMock/OCMock.h>
 #import <XCTest/XCTest.h>
 
 
 @interface TestLocalFileStoragePlugin : XCTestCase
-
 @end
 
 @implementation TestLocalFileStoragePlugin
@@ -31,9 +31,12 @@
 
 - (void) testCanHandleImageCaptureEvent {
     Session *session = [[Session alloc] initWithSSID:1];
-    Capture *capture = [NSEntityDescription insertNewObjectForEntityForName:@"Capture" inManagedObjectContext:[[NSManagedObjectContext alloc] init]];
-    capture.type =[NSNumber numberWithInt:CAPTURE_TYPE_SCREEN_IMG];
-    capture.created_at =[NSDate date];
+    
+    id capture = OCMClassMock([Capture class]);
+    
+    
+    OCMStub([capture created_at]).andReturn([NSDate date]);
+    
     NSMutableDictionary *session_context = [[NSMutableDictionary alloc] init];
     [session_context setValue:capture forKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
     [session setContext:session_context];

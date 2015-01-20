@@ -8,6 +8,7 @@ target "Whitebox" do
   pod "PromiseKit/NSTask"
   pod "ASIHTTPRequest"
   pod "PromiseKit-AFNetworking"
+  pod "NMSSH"
 end
 
 target "WhiteboxTests" do
@@ -15,5 +16,6 @@ target "WhiteboxTests" do
     pod "PromiseKit/NSTask"
     pod "ASIHTTPRequest"
     pod "PromiseKit-AFNetworking"
+    pod "OCMock"
 end
 
