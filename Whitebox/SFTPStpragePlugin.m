@@ -9,9 +9,18 @@
 #import "SFTPStpragePlugin.h"
 
 #define SFTP_SCRIPT_GET_STORAGE_PATH_F_CALL "window.SFTPStoragePlugin.getStoragePath(\"%@\");"
-#define SFTP_SCRIPT_GET_WEB_PATH_F_CALL     "window.SFTPStoragePlugin.getWebPath(\"%@\", \"%@\", \"%@\");"
+#define SFTP_SCRIPT_GET_WEB_PATH_F_CALL     "window.SFTPStoragePlugin.getWebPath(\"%@\", \"%@\", \"%@\", \"%@\");"
 
 @implementation SFTPStpragePlugin
+
+- (id) initPluginWithOptions:(NSDictionary *)options_ {
+    if (self = [super initPluginWithOptions:options_]) {
+        NSString *script_path = [self->options objectForKey:@"ScriptFilePath"];
+        [self initScript:script_path];
+    }
+    
+    return self;
+}
 
 - (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {
     
@@ -39,30 +48,60 @@
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         
         // @TODO: Validate these values, it's not safe to use 'em in JS
-        NSString     *host    = [self->options valueForKey:@"Host"];
-        NSString     *port    = [self->options valueForKey:@"Port"];
-        NSString     *user    = [self->options valueForKey:@"User"];
+        NSString     *web_schema  = [self->options valueForKey:@"WebSchema"];
+        NSString     *host        = [self->options valueForKey:@"Host"];
+        NSString     *port        = [self->options valueForKey:@"Port"];
+        NSString     *user        = [self->options valueForKey:@"User"];
+        NSString     *web_port    = [self->options valueForKey:@"WebPort"];
         
         NSDictionary *session_context     = [session context];
-        NSFileHandle *input_file          = [session_context valueForKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        NSString     *input_file_path     = [session_context valueForKey:@SHRD_CTX_TMP_FILE_FULL_PATH];
         NSString     *yyyymmddhhiiss_name = [session_context valueForKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
+        Capture      *capture             = [session_context valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
         
-        NMSSHSession *session = [NMSSHSession connectToHost:host port:port withUsername:user];
         
-        if ([session isConnected]) {
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        NSInteger num_port = [[f numberFromString:port] integerValue];
+        f = nil;
+        
+        NMSSHSession *ssh_session = [NMSSHSession connectToHost:host port:num_port withUsername:user];
+        
+        if ([ssh_session isConnected]) {
         
             WebView *web_view = [WhiteBox valueForPathKey:@"Sandbox.Web.JS"];
             NSString *storage_path = [web_view stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@SFTP_SCRIPT_GET_STORAGE_PATH_F_CALL, yyyymmddhhiiss_name]];
+            NSString *web_url = [web_view stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@SFTP_SCRIPT_GET_WEB_PATH_F_CALL, web_schema, host, web_port, yyyymmddhhiiss_name]];
             
-            BOOL success = session.channel uploadFile:<#(id)#> to:<#(id)#>
+            NSLog(@"Storage path: %@", storage_path);
+            NSLog(@"Web URL: %@", web_url);
             
-            [session disconnect];
+            NSDictionary *capture_data_dict;
             
-            fulfill(session);
+            if ([ssh_session.channel uploadFile:input_file_path to:storage_path]) {
+                capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     web_url, @"meta",
+                                     [self signature], @"provider",
+                                     [NSNumber numberWithInt:CAPTURE_DATA_STATUS_OK ], @"status",
+                                     nil
+                                     ];
+            } else {
+                capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     @"", @"meta",
+                                     [self signature], @"provider",
+                                     [NSNumber numberWithInt:CAPTURE_DATA_STATUS_NOT_OK ], @"status",
+                                     nil
+                                     ];
+            }
+            
+            [capture addCaptureDataFromDictionary:capture_data_dict];
+            
+            
+            [ssh_session disconnect];
+            fulfill(capture);
         } else {
-            reject(fulfill);
-            [session disconnect];
-            
+            [ssh_session disconnect];
+            reject(nil);
         }
     }];
 }

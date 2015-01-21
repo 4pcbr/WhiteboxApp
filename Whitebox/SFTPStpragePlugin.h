@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Brand New Heroes. All rights reserved.
 //
 
+#import "CaptureData.h"
 #import <NMSSHSession.h>
 #import "ReactorPlugin.h"
 #import "ReactorEvents.h"

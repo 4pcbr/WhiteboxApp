@@ -150,7 +150,7 @@ static int FETCH_LIMIT = 10;
 
 - (IBAction)captureScreen:(id)sender {
     NSDictionary *options = [[NSDictionary alloc] init];
-    [ScreenGrabber capture:options].then(^(NSFileHandle *file_handle) {
+    [ScreenGrabber capture:options].then(^(FileHandleWithPath *file_handle) {
         if (file_handle == NULL) {
             return;
         }
@@ -162,8 +162,9 @@ static int FETCH_LIMIT = 10;
         [capture setCreated_at:[NSDate date]];
         
         NSMutableDictionary *shared_context = [[NSMutableDictionary alloc] init];
-        [shared_context setValue:capture forKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
-        [shared_context setValue:file_handle forKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        [shared_context setValue:capture               forKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
+        [shared_context setValue:file_handle           forKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        [shared_context setValue:file_handle.file_path forKey:@SHRD_CTX_TMP_FILE_FULL_PATH];
         
         [session setContext:shared_context];
         
