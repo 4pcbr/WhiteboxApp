@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Brand New Heroes. All rights reserved.
 //
 
+#import "FileHandleWithPath.h"
 #import <PromiseKit/Promise.h>
 #import <PromiseKit/NSTask+PromiseKit.h>
 #import "ScreenGrabberDelegate.h"

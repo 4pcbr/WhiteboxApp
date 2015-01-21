@@ -31,6 +31,8 @@
 		5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */; };
 		5D6B80681A6F18AC003DC897 /* SFTPStpragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B80671A6F18AC003DC897 /* SFTPStpragePlugin.m */; };
 		5D6B806C1A6F18E2003DC897 /* SFTPViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B806B1A6F18E2003DC897 /* SFTPViewBuilder.m */; };
+		5D6B80701A704DD6003DC897 /* SFTPStoragePlugin.js in Resources */ = {isa = PBXBuildFile; fileRef = 5D6B806F1A704DD6003DC897 /* SFTPStoragePlugin.js */; };
+		5D6B80741A705CD4003DC897 /* FileHandleWithPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B80731A705CD4003DC897 /* FileHandleWithPath.m */; };
 		5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79F7041A051FE400BDB73F /* Whitebox.xcdatamodeld */; };
 		5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79F7071A051FE400BDB73F /* Images.xcassets */; };
 		5DA8D0701A22987F0024B6F8 /* ScreenGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA8D06F1A22987F0024B6F8 /* ScreenGrabber.m */; };
@@ -103,6 +105,9 @@
 		5D6B80671A6F18AC003DC897 /* SFTPStpragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTPStpragePlugin.m; sourceTree = "<group>"; };
 		5D6B806A1A6F18E2003DC897 /* SFTPViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTPViewBuilder.h; sourceTree = "<group>"; };
 		5D6B806B1A6F18E2003DC897 /* SFTPViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTPViewBuilder.m; sourceTree = "<group>"; };
+		5D6B806F1A704DD6003DC897 /* SFTPStoragePlugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SFTPStoragePlugin.js; sourceTree = "<group>"; };
+		5D6B80721A705CD4003DC897 /* FileHandleWithPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandleWithPath.h; sourceTree = "<group>"; };
+		5D6B80731A705CD4003DC897 /* FileHandleWithPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandleWithPath.m; sourceTree = "<group>"; };
 		5D79F6FD1A051FE400BDB73F /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79F7011A051FE400BDB73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D79F7051A051FE400BDB73F /* Whitebox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Whitebox.xcdatamodel; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D6B80711A705CAA003DC897 /* File */,
 				5D0501F21A6C49F500B9E4D8 /* Request */,
 				5D4EC01D1A67164400D3E5F0 /* Session */,
 				5D636C861A4CD2BB0001A901 /* Misc */,
@@ -301,6 +307,31 @@
 				5D6B806B1A6F18E2003DC897 /* SFTPViewBuilder.m */,
 			);
 			name = ViewBuilder;
+			sourceTree = "<group>";
+		};
+		5D6B806D1A704DBA003DC897 /* SFTPStoragePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				5D6B806E1A704DC4003DC897 /* Script */,
+			);
+			name = SFTPStoragePlugin;
+			sourceTree = "<group>";
+		};
+		5D6B806E1A704DC4003DC897 /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				5D6B806F1A704DD6003DC897 /* SFTPStoragePlugin.js */,
+			);
+			name = Script;
+			sourceTree = "<group>";
+		};
+		5D6B80711A705CAA003DC897 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				5D6B80721A705CD4003DC897 /* FileHandleWithPath.h */,
+				5D6B80731A705CD4003DC897 /* FileHandleWithPath.m */,
+			);
+			name = File;
 			sourceTree = "<group>";
 		};
 		5D79F6F41A051FE400BDB73F = {
@@ -416,6 +447,7 @@
 		5DACF90A1A56ABAE000BB5F9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				5D6B806D1A704DBA003DC897 /* SFTPStoragePlugin */,
 				5DACF90B1A56ABB8000BB5F9 /* RESTStoragePlugin */,
 			);
 			name = Plugins;
@@ -534,6 +566,7 @@
 			files = (
 				5D636C901A4E23860001A901 /* Localizable.strings in Resources */,
 				5D79F7081A051FE400BDB73F /* Images.xcassets in Resources */,
+				5D6B80701A704DD6003DC897 /* SFTPStoragePlugin.js in Resources */,
 				5D07F9051A4C72560004BF69 /* Settings.plist in Resources */,
 				5DACF9091A56A936000BB5F9 /* RESTStoragePlugin.js in Resources */,
 				5DBC1EC21A5755A30039E927 /* Menu.xib in Resources */,
@@ -639,6 +672,7 @@
 				5D636C8A1A4E03AC0001A901 /* CaptureMenuListViewController.m in Sources */,
 				5D6B806C1A6F18E2003DC897 /* SFTPViewBuilder.m in Sources */,
 				5D4EC0231A6716B000D3E5F0 /* Session.m in Sources */,
+				5D6B80741A705CD4003DC897 /* FileHandleWithPath.m in Sources */,
 				5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */,
 				5DACF9401A574BCF000BB5F9 /* main.m in Sources */,
 				5D79F7061A051FE400BDB73F /* Whitebox.xcdatamodeld in Sources */,

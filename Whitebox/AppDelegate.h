@@ -8,6 +8,7 @@
 
 #import "CaptureMenuListViewController.h"
 #import <Cocoa/Cocoa.h>
+#import "FileHandleWithPath.h"
 #import "Reactor.h"
 #import "ReactorEvents.h"
 #import "SessionManager.h"
