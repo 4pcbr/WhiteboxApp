@@ -16,7 +16,7 @@
     IBOutlet NSMenuItem *anchor_menu_item;
 }
 
-@property (nonatomic, readwrite, retain) NSSet *capture_list;
+@property (nonatomic, readwrite, retain) NSArray     *capture_list;
 @property (nonatomic, readwrite, retain) NSHashTable *plugins;
 
 - (IBAction)captureListDidChange:(id)sender;

@@ -31,6 +31,7 @@ static PluginManager* instance_;
     NSHashTable *plugins_ = [[NSHashTable alloc] init];
     
     for (NSString *plugin_name in settings) {
+        NSLog(@"Initing plugin: %@", plugin_name);
         NSDictionary *plugin_options = (NSDictionary*)[settings valueForKey:plugin_name];
         Class klass = NSClassFromString(plugin_name);
         ReactorPlugin *plugin = [[klass alloc] initPluginWithOptions:plugin_options];

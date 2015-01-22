@@ -29,7 +29,7 @@
 		5D636C8D1A4E17AE0001A901 /* CaptureViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C8C1A4E17AE0001A901 /* CaptureViewBuilder.m */; };
 		5D636C901A4E23860001A901 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D636C8F1A4E23860001A901 /* Localizable.strings */; };
 		5D636C991A50B6FE0001A901 /* LocalFileViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */; };
-		5D6B80681A6F18AC003DC897 /* SFTPStpragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B80671A6F18AC003DC897 /* SFTPStpragePlugin.m */; };
+		5D6B80681A6F18AC003DC897 /* SFTPStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B80671A6F18AC003DC897 /* SFTPStoragePlugin.m */; };
 		5D6B806C1A6F18E2003DC897 /* SFTPViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B806B1A6F18E2003DC897 /* SFTPViewBuilder.m */; };
 		5D6B80701A704DD6003DC897 /* SFTPStoragePlugin.js in Resources */ = {isa = PBXBuildFile; fileRef = 5D6B806F1A704DD6003DC897 /* SFTPStoragePlugin.js */; };
 		5D6B80741A705CD4003DC897 /* FileHandleWithPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B80731A705CD4003DC897 /* FileHandleWithPath.m */; };
@@ -101,8 +101,8 @@
 		5D636C8F1A4E23860001A901 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5D636C971A50B6FE0001A901 /* LocalFileViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileViewBuilder.h; sourceTree = "<group>"; };
 		5D636C981A50B6FE0001A901 /* LocalFileViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileViewBuilder.m; sourceTree = "<group>"; };
-		5D6B80661A6F18AC003DC897 /* SFTPStpragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTPStpragePlugin.h; sourceTree = "<group>"; };
-		5D6B80671A6F18AC003DC897 /* SFTPStpragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTPStpragePlugin.m; sourceTree = "<group>"; };
+		5D6B80661A6F18AC003DC897 /* SFTPStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTPStoragePlugin.h; sourceTree = "<group>"; };
+		5D6B80671A6F18AC003DC897 /* SFTPStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTPStoragePlugin.m; sourceTree = "<group>"; };
 		5D6B806A1A6F18E2003DC897 /* SFTPViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTPViewBuilder.h; sourceTree = "<group>"; };
 		5D6B806B1A6F18E2003DC897 /* SFTPViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTPViewBuilder.m; sourceTree = "<group>"; };
 		5D6B806F1A704DD6003DC897 /* SFTPStoragePlugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SFTPStoragePlugin.js; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				5D6B80691A6F18B1003DC897 /* ViewBuilder */,
-				5D6B80661A6F18AC003DC897 /* SFTPStpragePlugin.h */,
-				5D6B80671A6F18AC003DC897 /* SFTPStpragePlugin.m */,
+				5D6B80661A6F18AC003DC897 /* SFTPStoragePlugin.h */,
+				5D6B80671A6F18AC003DC897 /* SFTPStoragePlugin.m */,
 			);
 			name = SFTPStoragePlugin;
 			sourceTree = "<group>";
@@ -660,7 +660,7 @@
 				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
 				5D0501F51A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m in Sources */,
-				5D6B80681A6F18AC003DC897 /* SFTPStpragePlugin.m in Sources */,
+				5D6B80681A6F18AC003DC897 /* SFTPStoragePlugin.m in Sources */,
 				5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */,
 				5D3B19081A1402050063DD46 /* Capture.m in Sources */,
 				5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */,

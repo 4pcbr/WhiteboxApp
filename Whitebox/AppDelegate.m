@@ -267,16 +267,15 @@ static int FETCH_LIMIT = 10;
     }
 }
 
-- (NSSet *) loadRecentCaptures:(NSUInteger)fetch_limit {
+- (NSArray *) loadRecentCaptures:(NSUInteger)fetch_limit {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Capture"];
     [request setSortDescriptors:[NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:NO], nil]];
     [request setFetchLimit:fetch_limit];
-    NSSet *res = [[NSSet alloc] init];
-    return [res setByAddingObjectsFromArray: [[self managedObjectContext] executeFetchRequest:request error:nil]];
+    return [[self managedObjectContext] executeFetchRequest:request error:nil];
 }
 
 - (void) reloadMenuItemView {
-    NSSet *capture_list = [self loadRecentCaptures:FETCH_LIMIT];
+    NSArray *capture_list = [self loadRecentCaptures:FETCH_LIMIT];
     [self capture_list_vc].capture_list = capture_list;
     [self capture_list_vc].plugins = [PluginManager plugins];
     [[self capture_list_vc] captureListDidChange:nil];

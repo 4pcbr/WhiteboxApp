@@ -15,6 +15,6 @@
 #import "WhiteBox.h"
 
 
-@interface SFTPStpragePlugin : ReactorPlugin
+@interface SFTPStoragePlugin : ReactorPlugin
 
 @end

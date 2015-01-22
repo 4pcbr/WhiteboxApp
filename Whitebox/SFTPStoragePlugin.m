@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Brand New Heroes. All rights reserved.
 //
 
-#import "SFTPStpragePlugin.h"
+#import "SFTPStoragePlugin.h"
 
 #define SFTP_SCRIPT_GET_STORAGE_PATH_F_CALL "window.SFTPStoragePlugin.getStoragePath(\"%@\");"
 #define SFTP_SCRIPT_GET_WEB_PATH_F_CALL     "window.SFTPStoragePlugin.getWebPath(\"%@\", \"%@\", \"%@\", \"%@\");"
 
-@implementation SFTPStpragePlugin
+@implementation SFTPStoragePlugin
 
 - (id) initPluginWithOptions:(NSDictionary *)options_ {
     if (self = [super initPluginWithOptions:options_]) {
