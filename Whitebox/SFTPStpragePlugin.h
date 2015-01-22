@@ -13,7 +13,6 @@
 #import "SessionManager.h"
 #import "SharedContextKeys.h"
 #import "WhiteBox.h"
-#import <WebKit/WebView.h>
 
 
 @interface SFTPStpragePlugin : ReactorPlugin

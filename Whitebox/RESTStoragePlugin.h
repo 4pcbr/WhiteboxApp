@@ -21,7 +21,6 @@
 #import "SessionManager.h"
 #import "Utils.h"
 #import "WhiteBox.h"
-#import <WebKit/WebView.h>
 
 @interface RESTStoragePlugin : ReactorPlugin
 

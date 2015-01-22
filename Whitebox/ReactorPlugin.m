@@ -61,4 +61,34 @@
     return [self className];
 }
 
+- (void) initScript: (NSString *)script_path {
+    if (!script_path) {
+        @throw @"No script path settings provided. Failed to init the plugin.";
+    }
+    NSString *script_body = nil;
+    if (![script_path hasPrefix:@"/"]) {
+        NSString *script_name = [script_path stringByDeletingPathExtension];
+        NSString *script_ext  = [script_path pathExtension];
+        script_path = [[NSBundle mainBundle] pathForResource:script_name ofType:script_ext];
+    }
+    NSError *error = nil;
+    script_body = [NSString stringWithContentsOfFile:script_path encoding:NSUTF8StringEncoding error:&error];
+    
+    NSLog(@"Script body: %@", script_body);
+    
+    if (error != nil) {
+        NSLog(@"Error while reading the script file: %@", error);
+        @throw @"Error while reading the script file. Failed to init the plugin.";
+    }
+    
+    WebView *web_view = [WhiteBox valueForPathKey:@"Sandbox.Web.JS"];
+    
+    NSString *js_eval_status = [web_view stringByEvaluatingJavaScriptFromString:script_body];
+    if (![js_eval_status isEqualToString:@"1"]) {
+        NSLog(@"JS eval status: %@", js_eval_status);
+        @throw @"Non-zero JS eval exit code. Failed to init the plugin.";
+    }
+}
+
+
 @end

@@ -13,6 +13,8 @@
 #import "Processable.h"
 #import "ReactorData.h"
 #import "Session.h"
+#import <WebKit/WebView.h>
+#import "WhiteBox.h"
 
 @protocol ReactorPluginViewBuilder <NSObject>
 
@@ -48,5 +50,7 @@
 - (NSString *) signature;
 
 - (id<ReactorPluginViewBuilder>) getViewBuilder;
+
+- (void) initScript: (NSString *)script_path;
 
 @end
