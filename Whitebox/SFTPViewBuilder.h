@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ReactorPlugin.h"
+#import "Capture.h"
+#import "CaptureData.h"
 
 @interface SFTPViewBuilder : NSObject <ReactorPluginViewBuilder>
+
+@property (strong, nonatomic) NSString *hostname;
 
 @end

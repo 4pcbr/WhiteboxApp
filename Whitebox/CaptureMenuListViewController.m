@@ -64,7 +64,6 @@
     }
     
     for (Capture *capture in self.capture_list) {
-        NSLog(@"Capture %i created at: %@", anchor_index, capture.created_at);
         NSMenuItem *menu_item = [CaptureViewBuilder buildMenuItem:capture];
         [self->menu_items addObject:menu_item];
         [menu insertItem:menu_item atIndex:(++anchor_index)];

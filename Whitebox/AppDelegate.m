@@ -150,7 +150,7 @@ static int FETCH_LIMIT = 10;
 
 - (IBAction)captureScreen:(id)sender {
     NSDictionary *options = [[NSDictionary alloc] init];
-    [ScreenGrabber capture:options].then(^(FileHandleWithPath *file_handle) {
+    [ScreenGrabber capture:options].then(^(NSFileHandle *file_handle) {
         if (file_handle == NULL) {
             return;
         }

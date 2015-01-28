@@ -16,7 +16,7 @@
 
 - (NSMenuItem *) buildMenuItem:(Capture *)capture {
     NSMenuItem *menu_item = [[NSMenuItem alloc] init];
-    menu_item.title = NSLocalizedString(@"REVEAL_IN_FINDER", nil);
+    menu_item.title = NSLocalizedString(@"PLUGIN_LOCAL_OPEN", nil);
     menu_item.action = @selector(menuItemDidClick:);
     menu_item.target = self;
     menu_item.representedObject = capture;

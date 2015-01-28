@@ -11,8 +11,10 @@
 #import "ReactorPlugin.h"
 #import "ReactorEvents.h"
 #import "SessionManager.h"
+#import "SFTPViewBuilder.h"
 #import "SharedContextKeys.h"
 #import "WhiteBox.h"
+#import "Utils.h"
 
 
 @interface SFTPStoragePlugin : ReactorPlugin

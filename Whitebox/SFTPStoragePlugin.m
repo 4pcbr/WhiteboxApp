@@ -59,6 +59,12 @@
         NSString     *yyyymmddhhiiss_name = [session_context valueForKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
         Capture      *capture             = [session_context valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
         
+        if (yyyymmddhhiiss_name == NULL) {
+            yyyymmddhhiiss_name = [Utils yyyymmddhhiiss];
+            [session_context setValue:yyyymmddhhiiss_name forKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
+        }
+        
+        yyyymmddhhiiss_name = [NSString stringWithFormat:@"%@.%@", yyyymmddhhiiss_name, [WhiteBox valueForPathKey:@"Capture.Screen.FileExtension"]];
         
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         f.numberStyle = NSNumberFormatterDecimalStyle;
@@ -70,50 +76,65 @@
         if ([ssh_session isConnected]) {
         
             WebView *web_view = [WhiteBox valueForPathKey:@"Sandbox.Web.JS"];
+            
             NSString *storage_path = [web_view stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@SFTP_SCRIPT_GET_STORAGE_PATH_F_CALL, yyyymmddhhiiss_name]];
+            
             NSString *web_url = [web_view stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@SFTP_SCRIPT_GET_WEB_PATH_F_CALL, web_schema, host, web_port, yyyymmddhhiiss_name]];
             
+            NSLog(@"Input file path: %@", input_file_path);
             NSLog(@"Storage path: %@", storage_path);
             NSLog(@"Web URL: %@", web_url);
             
             NSDictionary *capture_data_dict;
             
-            if ([ssh_session.channel uploadFile:input_file_path to:storage_path]) {
-                capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     web_url, @"meta",
-                                     [self signature], @"provider",
-                                     [NSNumber numberWithInt:CAPTURE_DATA_STATUS_OK ], @"status",
-                                     nil
-                                     ];
-            } else {
-                capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"", @"meta",
-                                     [self signature], @"provider",
-                                     [NSNumber numberWithInt:CAPTURE_DATA_STATUS_NOT_OK ], @"status",
-                                     nil
-                                     ];
+            [ssh_session authenticateByPublicKey:[self->options valueForKey:@"PublicKey"] privateKey:[self->options valueForKey:@"PrivateKey"] andPassword:nil];
+            
+            @try {
+                
+                if ([ssh_session.channel uploadFile:input_file_path to:storage_path]) {
+                    
+                    capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                         web_url, @"meta",
+                                         [self signature], @"provider",
+                                         [NSNumber numberWithInt:CAPTURE_DATA_STATUS_OK ], @"status",
+                                         nil
+                                         ];
+                } else {
+                    
+                    capture_data_dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"", @"meta",
+                                         [self signature], @"provider",
+                                         [NSNumber numberWithInt:CAPTURE_DATA_STATUS_NOT_OK ], @"status",
+                                         nil
+                                         ];
+                }
+            }
+            @catch (NSException *e) {
+                NSLog(@"Exception thrown: %@", e);
             }
             
             [capture addCaptureDataFromDictionary:capture_data_dict];
-            
-            
+
             [ssh_session disconnect];
+
             fulfill(capture);
         } else {
+
             [ssh_session disconnect];
+
             reject(nil);
         }
     }];
 }
 
 - (id<ReactorPluginViewBuilder>) getViewBuilder {
-//    if (self->view_builder == NULL) {
-//        RESTViewBuilder *vb = [[RESTViewBuilder alloc] init];
-//        vb.hostname = [self->options objectForKey:@"Host"];
-//        self->view_builder = vb;
-//    }
-//    return self->view_builder;
-    return nil;
+    if (self->view_builder == NULL) {
+        SFTPViewBuilder *vb = [[SFTPViewBuilder alloc] init];
+        vb.hostname = [self->options objectForKey:@"Host"];
+        self->view_builder = vb;
+    }
+
+    return self->view_builder;
 }
 
 @end

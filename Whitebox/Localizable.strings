@@ -5,6 +5,15 @@
   Created by Olegs on 27/12/14.
   Copyright (c) 2014 Brand New Heroes. All rights reserved.
 */
-"CAPTURE_RECENTS"    = "Recent captures";
-"CAPTURE_NO_RECENTS" = "No recent captures";
-"REVEAL_IN_FINDER"   = "Reveal in Finder";
+"CAPTURE_RECENTS"                      = "Recent captures";
+"CAPTURE_NO_RECENTS"                   = "No recent captures";
+
+"PLUGIN_LOCAL_OPEN"                    = "Reveal in Finder";
+
+"PLUGIN_REST_OPEN"                     = "%@";
+"PLUGIN_REST_UNABLE_UPLOAD"            = "Can't upload to %@";
+"PLUGIN_REST_REUPLOAD"                 = "Reupload to %@";
+
+"PLUGIN_SFTP_OPEN"                     = "%@";
+"PLUGIN_SFTP_UNABLE_UPLOAD"            = "Can't upload to %@";
+"PLUGIN_SFTP_REUPLOAD"                 = "Reupload to %@";

@@ -59,7 +59,8 @@ NSDictionary * _defaults_;
         [capture_task setLaunchPath:bin_path];
         [capture_task setArguments:launch_options];
         [capture_task promise].then(^(NSData *data) {
-            FileHandleWithPath *file_handle = [FileHandleWithPath fileHandleForReadingAtPath:tmp_file];
+            NSFileHandle *file_handle = [NSFileHandle fileHandleForReadingAtPath:tmp_file];
+            file_handle.file_path = tmp_file;
             fulfill(file_handle);
         }).catch(^(NSError *error) {
             reject(error);

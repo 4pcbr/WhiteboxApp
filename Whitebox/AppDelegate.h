@@ -8,7 +8,7 @@
 
 #import "CaptureMenuListViewController.h"
 #import <Cocoa/Cocoa.h>
-#import "FileHandleWithPath.h"
+#import "NSFileHandle+StorePath.h"
 #import "Reactor.h"
 #import "ReactorEvents.h"
 #import "SessionManager.h"
@@ -22,7 +22,6 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 
 @end
 
