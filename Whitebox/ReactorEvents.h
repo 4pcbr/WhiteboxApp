@@ -13,6 +13,11 @@
 
 #define RE_SCREEN_CAPTURE_CREATED    100
 #define RE_LOCAL_FILE_CREATED        110
+#define RE_REQUEST_RESTORE_FH        120
+
+// Custom plugin events
+
+#define RE_PLUGIN_SFTP_REUPLOAD      250
 
 // END Screen capture storage events
 

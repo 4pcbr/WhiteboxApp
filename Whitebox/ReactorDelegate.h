@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PromiseKit/Promise.h>
+#import "Session.h"
 
 @protocol ReactorDelegate
 
@@ -15,5 +17,9 @@
 - (void) reactorFail:(NSError *)error;
 
 - (void) reactorFinally;
+
+- (PMKPromise *) emitEvent:(int)event_id session:(Session *)session;
+
+- (void) emitEvent:(int)event_id session:(Session *)session delegate:(id<ReactorDelegate>)delegate;
 
 @end

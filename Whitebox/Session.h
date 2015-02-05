@@ -10,6 +10,7 @@
 
 @interface Session : NSObject {
     uint16 ssid;
+    int    event_id;
 }
 
 @property (strong, nonatomic) NSMutableDictionary *context;
@@ -17,6 +18,10 @@
 - (id) initWithSSID:(uint16)ssid;
 
 - (uint16) ssid;
+
+- (void) setEventID:(int)event_id;
+
+- (int) eventID;
 
 - (void) setContext:(NSMutableDictionary *)context;
 

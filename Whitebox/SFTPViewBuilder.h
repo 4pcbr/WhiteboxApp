@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ReactorPlugin.h"
 #import "Capture.h"
 #import "CaptureData.h"
+#import "ReactorDelegate.h"
+#import "ReactorPlugin.h"
+#import "ReactorEvents.h"
+#import "SessionManager.h"
+#import "SharedContextKeys.h"
 
 @interface SFTPViewBuilder : NSObject <ReactorPluginViewBuilder>
 

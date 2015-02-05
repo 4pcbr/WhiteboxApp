@@ -35,4 +35,12 @@
     [self->_context removeAllObjects];
 }
 
+- (void) setEventID:(int)event_id_ {
+    self->event_id = event_id_;
+}
+
+- (int) eventID {
+    return self->event_id;
+}
+
 @end

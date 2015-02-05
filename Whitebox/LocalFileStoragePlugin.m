@@ -10,9 +10,34 @@
 
 @implementation LocalFileStoragePlugin
 
+static NSDictionary *__dispatch_table__;
+
+- (void) initDispatchTable {
+    @synchronized(self) {
+        __dispatch_table__ = @{
+                        @RE_SCREEN_CAPTURE_CREATED: @"storeFile:",
+                        @RE_REQUEST_RESTORE_FH: @"fillFH:"
+                       };
+    }
+}
+
 - (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {
 
-    if (event_id != RE_SCREEN_CAPTURE_CREATED) {
+    if (__dispatch_table__ == nil) {
+        [self initDispatchTable];
+    }
+    
+    NSString *sel_str = [__dispatch_table__ objectForKey:[NSNumber numberWithInt:event_id]];
+    
+    if (sel_str == nil) {
+        NSLog(@"Don't know how to handle an event with this ID: %d", event_id);
+        return NO;
+    }
+    
+//    NSLog(@"Dispatch table: %@", __dispatch_table__);
+    
+    if (event_id != RE_SCREEN_CAPTURE_CREATED &&
+        event_id != RE_REQUEST_RESTORE_FH) {
         NSLog(@"Don't know how to handle an event with this ID");
         return NO;
     };
@@ -34,7 +59,39 @@
     return YES;
 }
 
+- (PMKPromise *) dispatch:(Session *)session {
+    
+    if (__dispatch_table__ == nil) {
+        [self initDispatchTable];
+    }
+    
+    int event_id = session.eventID;
+    
+    NSString *sel_str = [__dispatch_table__ objectForKey:[NSNumber numberWithInt:event_id]];
+    
+    NSLog(@"Dispatch table: %@", __dispatch_table__);
+    
+    NSLog(@"Event id: %d", event_id);
+    
+    NSLog(@"Selector to be sent: %@", sel_str);
+    
+    SEL sel = NSSelectorFromString(sel_str);
+    return [self performSelector:sel withObject:session];
+}
+
+- (PMKPromise *) fillFH:(Session *)session {
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+        NSLog(@"Hello fillFH!");
+        fulfill(session);
+    }];
+}
+
 - (PMKPromise *) run:(Session *)session {
+    return [self dispatch:session];
+}
+
+- (PMKPromise *) storeFile:(Session *)session {
+    
     NSLog(@"Store the local file");
     
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {

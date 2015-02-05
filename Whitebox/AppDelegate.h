@@ -11,13 +11,14 @@
 #import "NSFileHandle+StorePath.h"
 #import "Reactor.h"
 #import "ReactorEvents.h"
+#import "ReactorDelegate.h"
 #import "SessionManager.h"
 #import "ScreenGrabber.h"
 #import "SharedContextKeys.h"
 #import <WebKit/WebView.h>
 
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, ReactorDelegate>
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

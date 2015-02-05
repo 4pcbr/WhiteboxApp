@@ -167,7 +167,9 @@ static int FETCH_LIMIT = 10;
         [shared_context setValue:file_handle.file_path forKey:@SHRD_CTX_TMP_FILE_FULL_PATH];
         
         [session setContext:shared_context];
-        
+        [session setEventID:RE_SCREEN_CAPTURE_CREATED];
+        // TODO: fix this place: event_id should be stored in session
+        // Session might be renamed to ReactorEvent
         [[self plugin_reactor] emitEvent:RE_SCREEN_CAPTURE_CREATED session:session].then(^(NSData *data) {
             NSLog(@"Capture: %@", capture);
             [self saveAction:nil];
@@ -299,6 +301,9 @@ static int FETCH_LIMIT = 10;
     [[self status_bar_item] setMenu:[self menu]];
 }
 
-
+- (PMKPromise *) emitEvent:(int)event_id session:(Session *)session {
+    NSLog(@"Bang!");
+    return [[self plugin_reactor] emitEvent:event_id session:session];
+}
 
 @end
