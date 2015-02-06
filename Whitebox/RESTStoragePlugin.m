@@ -43,7 +43,11 @@
     return YES;
 }
 
-- (PMKPromise *) run:(Session *) session {
+- (PMKPromise *) dispatch:(Session *)session {
+    return [self upload:session];
+}
+
+- (PMKPromise *) upload:(Session *) session {
     
     uint16        ssid                = [session ssid];
     NSDictionary *session_context     = [session context];

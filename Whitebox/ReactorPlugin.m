@@ -39,11 +39,15 @@
     self->enabled = NO;
 }
 
-- (PMKPromise *) run:(Session *)session {
-    NSLog(@"You ran into a stub run method.");
+- (PMKPromise *) dispatch:(Session *)session {
+    NSLog(@"You called a stub dispatch method.");
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
+}
+
+- (PMKPromise *) run:(Session *)session {
+    return [self dispatch:session];
 }
 
 - (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {

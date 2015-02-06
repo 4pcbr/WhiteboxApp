@@ -45,6 +45,8 @@
 
 - (PMKPromise *) run:(Session *)session;
 
+- (PMKPromise *) dispatch:(Session *)session;
+
 - (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session;
 
 - (NSString *) signature;

@@ -76,18 +76,43 @@ static NSDictionary *__dispatch_table__;
     NSLog(@"Selector to be sent: %@", sel_str);
     
     SEL sel = NSSelectorFromString(sel_str);
+    
     return [self performSelector:sel withObject:session];
 }
 
 - (PMKPromise *) fillFH:(Session *)session {
+    
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
-        NSLog(@"Hello fillFH!");
+        
+        NSMutableDictionary *event_data = [session context];
+        Capture      *capture    = [event_data valueForKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
+        NSPredicate  *predicate  = [NSPredicate predicateWithFormat:@"provider=\"LocalFileStoragePlugin\""];
+        CaptureData *capture_data = [capture getCaptureDataInstanceWithPredicate:predicate];
+        
+        if (capture_data == nil) {
+            NSLog(@"No capture data found. Unable to restore the file handle.");
+            return reject(nil);
+        }
+        
+        NSString *file_path = [capture_data meta];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:file_path]) {
+            NSLog(@"The file does not exist: %@. Exiting.", file_path);
+            return reject(nil);
+        }
+        
+        NSFileHandle *input_file = [NSFileHandle fileHandleForReadingAtPath:file_path];
+        [event_data setValue:input_file forKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        
+        NSString *yyyymmddhhiiss_name = [[file_path lastPathComponent] stringByDeletingPathExtension];
+        [event_data setValue:yyyymmddhhiiss_name forKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
+        
+        [session setContext:event_data];
+        
+        NSLog(@"Event data: %@", event_data);
+        
         fulfill(session);
     }];
-}
-
-- (PMKPromise *) run:(Session *)session {
-    return [self dispatch:session];
 }
 
 - (PMKPromise *) storeFile:(Session *)session {

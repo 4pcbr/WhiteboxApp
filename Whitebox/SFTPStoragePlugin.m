@@ -45,7 +45,11 @@
     return YES;
 }
 
-- (PMKPromise *) run:(Session *) session {
+- (PMKPromise *) dispatch:(Session *)session {
+    return [self upload:session];
+}
+
+- (PMKPromise *) upload:(Session *) session {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         
         // @TODO: Validate these values, it's not safe to use 'em in JS
