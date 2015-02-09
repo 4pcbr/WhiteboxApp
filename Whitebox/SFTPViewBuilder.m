@@ -86,9 +86,18 @@
     [session setEventID:RE_REQUEST_RESTORE_FH];
     
     [delegate emitEvent:RE_REQUEST_RESTORE_FH session:session].then(^(NSData *data) {
+        
+        NSLog(@"Session file path: %@", [[session context] valueForKey:@SHRD_CTX_TMP_FILE_FULL_PATH]);
+        
+        [delegate emitEvent:RE_PLUGIN_SFTP_UPLOAD session:session].then(^(NSData *sub_data) {
+            [delegate emitEvent:RE_EOC session:nil];
+        }).catch(^(NSError *sub_error) {
+            // TODO
+        });
+        
         NSLog(@"Session context: %@", session.context);
+        
     }).catch(^(NSError *error) {
-    
     });
 }
 

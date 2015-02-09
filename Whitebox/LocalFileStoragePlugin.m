@@ -16,7 +16,7 @@ static NSDictionary *__dispatch_table__;
     @synchronized(self) {
         __dispatch_table__ = @{
                         @RE_SCREEN_CAPTURE_CREATED: @"storeFile:",
-                        @RE_REQUEST_RESTORE_FH: @"fillFH:"
+                        @RE_REQUEST_RESTORE_FH: @"fillFileHandle:"
                        };
     }
 }
@@ -77,10 +77,15 @@ static NSDictionary *__dispatch_table__;
     
     SEL sel = NSSelectorFromString(sel_str);
     
-    return [self performSelector:sel withObject:session];
+    @try {
+        return [self performSelector:sel withObject:session];
+    } @catch (NSException *e) {
+        NSLog(@"En exception raised: %@", e);
+        return nil;
+    }
 }
 
-- (PMKPromise *) fillFH:(Session *)session {
+- (PMKPromise *) fillFileHandle:(Session *)session {
     
     return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
         
@@ -103,6 +108,7 @@ static NSDictionary *__dispatch_table__;
         
         NSFileHandle *input_file = [NSFileHandle fileHandleForReadingAtPath:file_path];
         [event_data setValue:input_file forKey:@SHRD_CTX_TMP_FILE_HANDLE];
+        [event_data setValue:file_path forKey:@SHRD_CTX_TMP_FILE_FULL_PATH];
         
         NSString *yyyymmddhhiiss_name = [[file_path lastPathComponent] stringByDeletingPathExtension];
         [event_data setValue:yyyymmddhhiiss_name forKey:@SHRD_CTX_YYYYMMDDHHIISS_FILE_NAME];
