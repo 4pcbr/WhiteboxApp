@@ -149,7 +149,9 @@ static int FETCH_LIMIT = 10;
 }
 
 - (IBAction)captureScreen:(id)sender {
+    
     NSDictionary *options = [[NSDictionary alloc] init];
+    
     [ScreenGrabber capture:options].then(^(NSFileHandle *file_handle) {
         if (file_handle == NULL) {
             return;
@@ -170,14 +172,16 @@ static int FETCH_LIMIT = 10;
         [session setEventID:RE_SCREEN_CAPTURE_CREATED];
         // TODO: fix this place: event_id should be stored in session
         // Session might be renamed to ReactorEvent
+        
         [[self plugin_reactor] emitEvent:RE_SCREEN_CAPTURE_CREATED session:session].then(^(NSData *data) {
-            NSLog(@"Capture: %@", capture);
-            [self saveAction:nil];
+            //[self saveAction:nil];
+            [[self plugin_reactor] emitEvent:RE_EOC session:nil];
         }).catch(^(NSError *error) {
             NSLog(@"Reactor error: %@", error);
         }).finally(^{
             // OPTIONAL
         });
+        
     }).catch(^(NSError *error) {
         // TODO
         NSLog(@"ScreenGrabber error: %@", error);
@@ -258,6 +262,14 @@ static int FETCH_LIMIT = 10;
     NSDictionary *plugin_settings = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StoragePlugins" ofType:@"plist"]];
     NSLog(@"Plugin settings: %@", plugin_settings);
     [PluginManager initPlugins:plugin_settings];
+    
+    [PluginManager registerFlyweight:^PMKPromise *(Session *session) {
+        return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+            NSLog(@"EOC event catched by the flyweight");
+            [self saveAction:nil];
+        }];
+    } forEventID:RE_EOC];
+    
     NSLog(@"Done initing plugins");
 }
 

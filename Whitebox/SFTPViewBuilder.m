@@ -52,7 +52,7 @@
 }
 
 - (void) reuploadFileDidClick:(id)sender {
-    // TODO
+    
     Capture *capture = (Capture *)[sender representedObject];
     
     if (capture == nil) {
@@ -60,16 +60,6 @@
         // TODO: alert user
         return;
     }
-    
-//    CaptureData *local_file_capture_data = [self getCaptureData:capture forProvider:@"LocalFileStoragePlugin"];
-//    
-//    if (local_file_capture_data == nil) {
-//        NSLog(@"No capture data found. Omitting.");
-//        // TODO: alert user
-//        return;
-//    }
-    
-//    NSLog(@"Capture: %@, CaptureData: %@", capture, local_file_capture_data.meta);
     
     NSObject <NSApplicationDelegate, ReactorDelegate> *delegate = (NSObject<NSApplicationDelegate, ReactorDelegate> *)[[NSApplication sharedApplication] delegate];
     
@@ -79,8 +69,6 @@
     
     NSMutableDictionary *shared_context = [[NSMutableDictionary alloc] init];
     [shared_context setValue:capture               forKey:@SHRD_CTX_CAPTURE_MNGD_OBJ];
-//    [shared_context setValue:file_handle           forKey:@SHRD_CTX_TMP_FILE_HANDLE];
-//    [shared_context setValue:file_handle.file_path forKey:@SHRD_CTX_TMP_FILE_FULL_PATH];
     
     [session setContext:shared_context];
     [session setEventID:RE_REQUEST_RESTORE_FH];

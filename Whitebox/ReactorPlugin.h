@@ -16,6 +16,8 @@
 #import <WebKit/WebView.h>
 #import "WhiteBox.h"
 
+#define PLUGIN_OPTS_KEY_ENABLED "Enabled"
+
 @protocol ReactorPluginViewBuilder <NSObject>
 
 @required

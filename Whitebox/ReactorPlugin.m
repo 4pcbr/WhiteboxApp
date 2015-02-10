@@ -8,8 +8,6 @@
 
 #import "ReactorPlugin.h"
 
-#define PLUGIN_OPTS_KEY_ENABLED "Enabled"
-
 @implementation ReactorPlugin
 
 - (id) initPluginWithOptions:(NSDictionary *)options_ {

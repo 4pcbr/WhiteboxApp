@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ReactorPlugin.h"
+#import "FlyweightPlugin.h"
 
 @interface PluginManager : NSObject
 
@@ -16,5 +17,7 @@
 + (BOOL) isInited;
 
 + (NSHashTable *) plugins;
+
++ (void) registerFlyweight:(PMKPromise *(^)(Session *session))block forEventID:(int) event_id;
 
 @end

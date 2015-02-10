@@ -45,4 +45,9 @@ static PluginManager* instance_;
     return [self instance]->plugins_;
 }
 
++ (void) registerFlyweight:(PMKPromise *(^)(Session *))block forEventID:(int)event_id {
+    FlyweightPlugin *flyweight = [[FlyweightPlugin alloc] initWithBlock:block eventID:event_id];
+    [[self instance]->plugins_ addObject:flyweight];
+}
+
 @end

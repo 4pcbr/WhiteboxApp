@@ -18,6 +18,7 @@
 		5D07F9051A4C72560004BF69 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F9041A4C72560004BF69 /* Settings.plist */; };
 		5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9071A4C73D60004BF69 /* WhiteBox.m */; };
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
+		5D2FFADB1A8AB6440047DC16 /* FlyweightPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
 		5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */; };
@@ -76,6 +77,8 @@
 		5D07F9071A4C73D60004BF69 /* WhiteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteBox.m; sourceTree = "<group>"; };
 		5D09B80D1A22750700E1DB25 /* LocalFileStoragePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileStoragePlugin.h; sourceTree = "<group>"; };
 		5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileStoragePlugin.m; sourceTree = "<group>"; };
+		5D2FFAD91A8AB6440047DC16 /* FlyweightPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyweightPlugin.h; sourceTree = "<group>"; };
+		5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyweightPlugin.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
 		5D3B19061A1402050063DD46 /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				5D5FB86A1A2A7D6E006C1222 /* ReactorPlugin.m */,
 				5D07F8F91A43966D0004BF69 /* PluginManager.h */,
 				5D07F8FA1A43966D0004BF69 /* PluginManager.m */,
+				5D2FFAD91A8AB6440047DC16 /* FlyweightPlugin.h */,
+				5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */,
 			);
 			name = Plugin;
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 			files = (
 				5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */,
 				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
+				5D2FFADB1A8AB6440047DC16 /* FlyweightPlugin.m in Sources */,
 				5DACF93E1A573A0A000BB5F9 /* AppDelegate.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
 				5D0501F81A6C547400B9E4D8 /* RESTViewBuilder.m in Sources */,
