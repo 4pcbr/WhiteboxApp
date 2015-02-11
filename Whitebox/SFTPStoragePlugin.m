@@ -25,8 +25,7 @@
 - (BOOL) canHandleEvent:(int)event_id forSession:(Session *)session {
     
     if (event_id != RE_SCREEN_CAPTURE_CREATED &&
-        event_id != RE_PLUGIN_SFTP_UPLOAD     &&
-        event_id != RE_PLUGIN_SFTP_REUPLOAD) {
+        event_id != RE_PLUGIN_SFTP_UPLOAD) {
         NSLog(@"Don't know how to handle an event with this ID");
         return NO;
     };

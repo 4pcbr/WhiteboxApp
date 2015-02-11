@@ -31,10 +31,21 @@ static PluginManager* instance_;
     NSHashTable *plugins_ = [[NSHashTable alloc] init];
     
     for (NSString *plugin_name in settings) {
-        NSLog(@"Initing plugin: %@", plugin_name);
+        
         NSDictionary *plugin_options = (NSDictionary*)[settings valueForKey:plugin_name];
+        
+        NSNumber *plugin_enabled = (NSNumber *)[plugin_options valueForKey:@PLUGIN_OPTS_KEY_ENABLED];
+        
+        if ([plugin_enabled isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            continue;
+        }
+        
+        NSLog(@"Initing plugin: %@", plugin_name);
+        
         Class klass = NSClassFromString(plugin_name);
+        
         ReactorPlugin *plugin = [[klass alloc] initPluginWithOptions:plugin_options];
+        
         [plugins_ addObject:plugin];
     }
     

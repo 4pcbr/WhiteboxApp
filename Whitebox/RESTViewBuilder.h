@@ -7,9 +7,13 @@
 //
 
 #import <AppKit/NSAlert.h>
+#import "CaptureData.h"
 #import <Foundation/Foundation.h>
 #import "ReactorPlugin.h"
-#import "CaptureData.h"
+#import "ReactorDelegate.h"
+#import "ReactorEvents.h"
+#import "SessionManager.h"
+#import "SharedContextKeys.h"
 
 @interface RESTViewBuilder : NSObject <ReactorPluginViewBuilder>
 
