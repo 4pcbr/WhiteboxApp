@@ -39,21 +39,26 @@ static SessionManager *_instance;
         uint16 ssid = 0;
         while (1) {
             ssid = [self generateSSID];
-            if ([[self instance]->_sessions valueForKey:[NSString stringWithFormat:@"%i", ssid]] == nil) {
+            if ([[self instance]->_sessions objectForKey:[NSString stringWithFormat:@"%i", ssid]] == nil) {
                 break;
             }
         }
         Session *session = [[Session alloc] initWithSSID:ssid];
-        [[self instance]->_sessions setValue:session forKey:[NSString stringWithFormat:@"%i", ssid]];
+        [[self instance]->_sessions setObject:session forKey:[NSString stringWithFormat:@"%i", ssid]];
         return session;
     }
+}
+
++ (void) expireSessionBySSID:(uint16)ssid {
+    Session *session = [[self instance]->_sessions objectForKey:[NSString stringWithFormat:@"%i", ssid]];
+    NSLog(@"Expiration: %@", session);
+    [[self instance]->_sessions removeObjectForKey:[NSString stringWithFormat:@"%i", ssid]];
 }
 
 + (Session *) retrieveSessionBySSID:(uint16)ssid {
     @synchronized(self) {
         NSString *key = [NSString stringWithFormat:@"%i", ssid];
-        Session *session = [[self instance]->_sessions valueForKey:key];
-        [[self instance]->_sessions removeObjectForKey:key];
+        Session *session = [[self instance]->_sessions objectForKey:key];
         return session;
     }
 }

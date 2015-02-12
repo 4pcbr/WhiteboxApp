@@ -19,4 +19,6 @@
 
 + (Session *) retrieveSessionBySSID:(uint16)ssid;
 
++ (void) expireSessionBySSID:(uint16)ssid;
+
 @end

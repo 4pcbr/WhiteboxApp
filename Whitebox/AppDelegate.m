@@ -174,7 +174,7 @@ static int FETCH_LIMIT = 10;
         // Session might be renamed to ReactorEvent
         
         [[self plugin_reactor] emitEvent:RE_SCREEN_CAPTURE_CREATED session:session].then(^(NSData *data) {
-            //[self saveAction:nil];
+            [SessionManager expireSessionBySSID:session.ssid];
             [[self plugin_reactor] emitEvent:RE_EOC session:nil];
         }).catch(^(NSError *error) {
             NSLog(@"Reactor error: %@", error);

@@ -71,6 +71,7 @@
     
     [delegate emitEvent:RE_REQUEST_RESTORE_FH session:session].then(^(NSData *data) {
         [delegate emitEvent:RE_PLUGIN_REST_UPLOAD session:session].then(^(NSData *sub_data) {
+            [SessionManager expireSessionBySSID:session.ssid];
             [delegate emitEvent:RE_EOC session:nil];
         }).catch(^(NSError *sub_error) {
             // TODO
