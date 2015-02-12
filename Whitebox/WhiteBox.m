@@ -75,4 +75,12 @@ WhiteBox *_instance;
     return [path_key componentsSeparatedByString:@KEY_SEPARATOR];
 }
 
++ (void) saveState:(NSManagedObjectContext *)manged_object_context {
+    // TODO
+}
+
++ (void) reloadState:(NSManagedObjectContext *)manged_object_context {
+    // TODO
+}
+
 @end
