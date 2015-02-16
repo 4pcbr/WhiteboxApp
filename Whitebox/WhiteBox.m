@@ -75,8 +75,28 @@ WhiteBox *_instance;
     return [path_key componentsSeparatedByString:@KEY_SEPARATOR];
 }
 
++ (NSDictionary *) flattenState:(NSDictionary *)original_dict {
+    NSMutableDictionary *flatten_dict = [[NSMutableDictionary alloc] init];
+    NSString *complete_key;
+    for (NSString *key in original_dict) {
+        if ([[original_dict objectForKey:key] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *flatten_thread = [self flattenState:[original_dict objectForKey:key]];
+            for (NSString *sub_key in flatten_thread) {
+                complete_key = [NSString stringWithFormat:@"%@%@%@", key, @KEY_SEPARATOR, sub_key];
+                [flatten_dict setObject:[flatten_thread valueForKey:sub_key] forKey:complete_key];
+            }
+        } else {
+            [flatten_dict setObject:[original_dict valueForKey:key] forKey:key];
+        }
+    }
+    
+    return flatten_dict;
+}
+
 + (void) saveState:(NSManagedObjectContext *)manged_object_context {
     // TODO
+    NSDictionary *flatten_dict = [self flattenState:[self instance]->options];
+    NSLog(@"Flatten object: %@", flatten_dict);
 }
 
 + (void) reloadState:(NSManagedObjectContext *)manged_object_context {
