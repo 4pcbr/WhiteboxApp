@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Brand New Heroes. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/NSManagedObjectContext.h>
+#import <Foundation/Foundation.h>
+#import "Settings.h"
 
 @interface WhiteBox : NSObject
 

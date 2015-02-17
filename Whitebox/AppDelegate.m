@@ -40,6 +40,8 @@ static int FETCH_LIMIT = 10;
     [self registerPlugins];
     [self buildMenuItemView];
     [self buildSettingsView];
+    
+    [WhiteBox saveState:[self managedObjectContext]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

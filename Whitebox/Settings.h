@@ -13,6 +13,13 @@
 #define SETTINGS_TYPE_STRING    2
 #define SETTINGS_TYPE_BOOL      3
 
+enum SettingsAttrType {
+    STRING,
+    INTEGER,
+    FLOAT,
+    BOOLEAN
+};
+
 @interface Settings : NSManagedObject
 
 @property (nonatomic, retain) NSString * key;
