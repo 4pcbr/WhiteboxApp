@@ -18,12 +18,15 @@ WhiteBox *_instance;
 + (WhiteBox *) instance {
     if (_instance == NULL) {
         _instance = [[WhiteBox alloc] init];
+        _instance->options = [[NSMutableDictionary alloc] init];
     }
     return _instance;
 }
 
 + (void) setOptions:(NSDictionary *)options_ {
-    [self instance]->options = [[NSMutableDictionary alloc] initWithDictionary:options_];
+    for (NSString *key in options_) {
+        [self setValue:[options_ objectForKey:key] ForPathKey:key];
+    }
     NSLog(@"I got a batch of settings and the current state is: %@",
           [self instance]->options);
 }
@@ -98,11 +101,6 @@ WhiteBox *_instance;
 }
 
 + (BOOL) saveState:(NSManagedObjectContext *)context {
-    // FIX ME
-    [self setValue:[NSNumber numberWithBool:YES] ForPathKey:@"TEST.1.2.3"];
-    [self setValue:[NSNumber numberWithFloat:123.45e05f] ForPathKey:@"TEST.1.2.2"];
-    [self setValue:[NSNumber numberWithInt:-1234i] ForPathKey:@"TEST.1.2.1"];
-    // END OF FIX ME
     
     NSDictionary *flatten_dict = [self flattenState:[self instance]->options];
     NSLog(@"Flatten object: %@", flatten_dict);
@@ -111,8 +109,6 @@ WhiteBox *_instance;
         id value = [flatten_dict objectForKey:key];
         [self createOrUpdate:key withValue:value inManagedObjectContext:context];
     }
-    
-    return YES; // REMOVE ME
     
     if ([context hasChanges]) {
         NSError *__autoreleasing *error;
@@ -129,8 +125,6 @@ WhiteBox *_instance;
     
     NSLog(@"Stringified value for key %@: %@, type: %i", key, [self stringifyValue:value], [self getValueType:value]);
     
-    return NO; // REMOVE ME
-    
     Settings       *settings_item   = nil;
     NSFetchRequest *request         = [[NSFetchRequest alloc] init];
     NSError *__autoreleasing *error = nil;
@@ -142,6 +136,7 @@ WhiteBox *_instance;
     
     if (settings_item == nil) {
         settings_item = [NSEntityDescription insertNewObjectForEntityForName:@"Settings" inManagedObjectContext:context];
+        settings_item.key = key;
     }
     
     [settings_item setType:[NSNumber numberWithInt:[self getValueType:value]]];
@@ -193,8 +188,33 @@ WhiteBox *_instance;
     return -1;
 }
 
-+ (void) reloadState:(NSManagedObjectContext *)manged_object_context {
-    // TODO
++ (void) loadState:(NSManagedObjectContext *)context {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Settings"];
+    NSError *__autoreleasing *error;
+    NSArray *settings = [context executeFetchRequest:request error:error];
+    for (Settings *settings_item in settings) {
+        id value = [self parseValue:settings_item.value ofType:[settings_item.type intValue]];
+        NSLog(@"Value: %@ for key: %@", value, settings_item.key);
+        [self setValue:value ForPathKey:settings_item.key];
+    }
+    
+    NSLog(@"Reloaded options: %@", [self instance]->options);
+}
+
++ (id) parseValue:(NSString *)value ofType:(int)type {
+    switch (type) {
+        case STRING:
+            return value;
+        case INTEGER:
+            return [NSNumber numberWithInt:[value intValue]];
+        case FLOAT:
+            return [NSNumber numberWithFloat:[value floatValue]];
+        case BOOLEAN:
+            return [NSNumber numberWithBool:[value boolValue]];
+        default:
+            return nil;
+            break;
+    }
 }
 
 @end

@@ -16,10 +16,10 @@
 
 + (void) setValue:(id)value ForPathKey:(NSString *)path_key;
 
-+ (id) valueForPathKey:(NSString *)path_key;
++ (id)   valueForPathKey:(NSString *)path_key;
 
 + (void) saveState:(NSManagedObjectContext *)manged_object_context;
 
-+ (void) reloadState:(NSManagedObjectContext *)manged_object_context;
++ (void) loadState:(NSManagedObjectContext *)manged_object_context;
 
 @end

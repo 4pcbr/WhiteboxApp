@@ -40,8 +40,6 @@ static int FETCH_LIMIT = 10;
     [self registerPlugins];
     [self buildMenuItemView];
     [self buildSettingsView];
-    
-    [WhiteBox saveState:[self managedObjectContext]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -256,6 +254,8 @@ static int FETCH_LIMIT = 10;
     NSDictionary *options = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"]];
     [WhiteBox setOptions:options];
     [WhiteBox setValue:[self js_web_view_sb] ForPathKey:@"Sandbox.Web.JS"];
+    
+    [WhiteBox loadState:[self managedObjectContext]];
     NSLog(@"Done initing the global settings");
 }
 
