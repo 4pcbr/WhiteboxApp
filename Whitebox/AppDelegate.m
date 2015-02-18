@@ -261,7 +261,18 @@ static int FETCH_LIMIT = 10;
 
 - (void) initPlugins {
     NSLog(@"Will init plugins");
-    NSDictionary *plugin_settings = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StoragePlugins" ofType:@"plist"]];
+    NSDictionary *plugin_settings;
+    
+    plugin_settings = [WhiteBox valueForPathKey:@"StoragePlugins"];
+    
+    if (plugin_settings == nil) {
+        // defaults
+        NSLog(@"Reading default plugin settings values");
+        plugin_settings = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StoragePlugins" ofType:@"plist"]];
+        [WhiteBox setValue:plugin_settings ForPathKey:@"StoragePlugins"];
+        [WhiteBox saveState:[self managedObjectContext]];
+    }
+    
     NSLog(@"Plugin settings: %@", plugin_settings);
     [PluginManager initPlugins:plugin_settings];
     

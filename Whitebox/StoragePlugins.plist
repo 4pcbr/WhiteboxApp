@@ -4,25 +4,39 @@
 <dict>
 	<key>SFTPStoragePlugin</key>
 	<dict>
+		<key>PrivateKey</key>
+		<string>~/.ssh/id_rsa</string>
+		<key>PublickKey</key>
+		<string>~/.ssh/id_rsa.pub</string>
+		<key>User</key>
+		<string>my_user</string>
+		<key>Host</key>
+		<string>ftp.example.com</string>
+		<key>Port</key>
+		<string>22</string>
+		<key>WebPort</key>
+		<string>80</string>
+		<key>WebSchema</key>
+		<string>http</string>
 		<key>ScriptFilePath</key>
 		<string>SFTPStoragePlugin.js</string>
 		<key>Enabled</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>RESTStoragePlugin</key>
 	<dict>
 		<key>ScriptFilePath</key>
 		<string>RESTStoragePlugin.js</string>
 		<key>ParamName</key>
-		<string>upload[file]</string>
+		<string>file</string>
 		<key>Path</key>
-		<string>/uploads</string>
+		<string>/upload</string>
 		<key>Host</key>
-		<string>i.4pcbr.com</string>
+		<string>example.com</string>
 		<key>Scheme</key>
-		<string>http</string>
+		<string>https</string>
 		<key>Enabled</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>LocalFileStoragePlugin</key>
 	<dict>
