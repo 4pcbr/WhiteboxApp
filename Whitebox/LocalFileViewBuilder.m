@@ -36,4 +36,15 @@
     }
 }
 
+- (BOOL) hasSettingsPane {
+    return YES;
+}
+
+- (NSDictionary *) settingsPaneElements {
+    return @{
+             @"Enabled": @"checkbox",
+             @"StorePath": @"text"
+             };
+}
+
 @end

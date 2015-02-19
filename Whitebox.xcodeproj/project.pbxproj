@@ -20,6 +20,7 @@
 		5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D09B80E1A22750700E1DB25 /* LocalFileStoragePlugin.m */; };
 		5D2FFADB1A8AB6440047DC16 /* FlyweightPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */; };
 		5D2FFADE1A8D64270047DC16 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFADD1A8D64270047DC16 /* Settings.m */; };
+		5D2FFAE11A969ED20047DC16 /* SettingsWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFAE01A969ED20047DC16 /* SettingsWindowViewController.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
 		5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */; };
@@ -82,6 +83,8 @@
 		5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyweightPlugin.m; sourceTree = "<group>"; };
 		5D2FFADC1A8D64270047DC16 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		5D2FFADD1A8D64270047DC16 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5D2FFADF1A969ED20047DC16 /* SettingsWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowViewController.h; sourceTree = "<group>"; };
+		5D2FFAE01A969ED20047DC16 /* SettingsWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowViewController.m; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
 		5D3B19061A1402050063DD46 /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 			children = (
 				5D636C881A4E03AC0001A901 /* CaptureMenuListViewController.h */,
 				5D636C891A4E03AC0001A901 /* CaptureMenuListViewController.m */,
+				5D2FFADF1A969ED20047DC16 /* SettingsWindowViewController.h */,
+				5D2FFAE01A969ED20047DC16 /* SettingsWindowViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				5D0501F81A6C547400B9E4D8 /* RESTViewBuilder.m in Sources */,
 				5DACF9061A56968C000BB5F9 /* RESTStoragePlugin.m in Sources */,
 				5D07F9031A4C6F480004BF69 /* Utils.m in Sources */,
+				5D2FFAE11A969ED20047DC16 /* SettingsWindowViewController.m in Sources */,
 				5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */,
 				5D0501F51A6C4A5000B9E4D8 /* ASIFormDataRequestWithSSID.m in Sources */,
 				5D6B80681A6F18AC003DC897 /* SFTPStoragePlugin.m in Sources */,

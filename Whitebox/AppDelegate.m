@@ -15,6 +15,7 @@
 @property (weak) IBOutlet NSWindow         *settings_window;
 @property (weak) IBOutlet WebView          *js_web_view_sb;
 @property (weak) IBOutlet CaptureMenuListViewController *capture_list_vc;
+@property (weak) IBOutlet SettingsWindowViewController  *settings_vc;
 
 @property (strong, atomic) NSStatusBar     *status_bar;
 @property (strong, atomic) NSImage         *default_menu_icon;
@@ -314,7 +315,8 @@ static int FETCH_LIMIT = 10;
 }
 
 - (void) buildSettingsView {
-    // TODO
+    self.settings_vc.plugins = [PluginManager plugins];
+    [self.settings_vc buildPluginSettingsView];
 }
 
 - (void) initMenuIcon {

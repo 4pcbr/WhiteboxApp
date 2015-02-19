@@ -13,6 +13,7 @@
 #import "ReactorEvents.h"
 #import "ReactorDelegate.h"
 #import "SessionManager.h"
+#import "SettingsWindowViewController.h"
 #import "ScreenGrabber.h"
 #import "SharedContextKeys.h"
 #import <WebKit/WebView.h>

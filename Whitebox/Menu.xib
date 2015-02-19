@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="6254"/>
     </dependencies>
@@ -18,11 +17,17 @@
                 <outlet property="anchor_menu_item" destination="KYF-5t-hVA" id="m49-0b-Lc7"/>
             </connections>
         </viewController>
+        <viewController id="ESx-Cw-tMA" customClass="SettingsWindowViewController">
+            <connections>
+                <outlet property="plugin_settings_pane" destination="dlC-rq-MYn" id="I1u-Yw-HW4"/>
+            </connections>
+        </viewController>
         <customObject id="2r4-NA-qeh" customClass="AppDelegate">
             <connections>
                 <outlet property="capture_list_vc" destination="fHk-Hc-OUA" id="iA2-kS-2tq"/>
                 <outlet property="js_web_view_sb" destination="0lT-rc-W21" id="KMe-TL-Y6j"/>
                 <outlet property="menu" destination="CAJ-VV-y9i" id="ERe-fJ-7uX"/>
+                <outlet property="settings_vc" destination="ESx-Cw-tMA" id="AFB-ir-i9c"/>
                 <outlet property="settings_window" destination="rs4-k7-3sj" id="LGz-pQ-a3C"/>
             </connections>
         </customObject>
@@ -56,7 +61,7 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="rs4-k7-3sj">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="704" y="394" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="Zly-C4-9DH">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -67,24 +72,25 @@
                         <tabViewItems>
                             <tabViewItem label="Generic" identifier="1" id="FAY-3j-xKD">
                                 <view key="view" id="kAz-4X-J9r">
+                                    <rect key="frame" x="10" y="33" width="476" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ypp-gP-aMU">
-                                            <rect key="frame" x="10" y="-19" width="115" height="18"/>
+                                            <rect key="frame" x="10" y="221" width="115" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show popups" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="UTf-0w-Tt2">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYj-b2-KSl">
-                                            <rect key="frame" x="10" y="-47" width="133" height="18"/>
+                                            <rect key="frame" x="10" y="193" width="133" height="18"/>
                                             <buttonCell key="cell" type="check" title="Copy to clipboard" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2dP-SQ-i03">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCj-5m-0yt">
-                                            <rect key="frame" x="10" y="-73" width="169" height="18"/>
+                                            <rect key="frame" x="10" y="167" width="169" height="18"/>
                                             <buttonCell key="cell" type="check" title="Launch on system login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bxb-Pv-XD8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -97,6 +103,11 @@
                                 <view key="view" id="iQr-eO-uQQ">
                                     <rect key="frame" x="10" y="33" width="476" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView orientation="vertical" alignment="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-Y3-5eu">
+                                            <rect key="frame" x="-3" y="-3" width="482" height="251"/>
+                                        </stackView>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
@@ -109,7 +120,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="167" y="107" width="216" height="156"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="eAN-2R-lp2">
                 <rect key="frame" x="0.0" y="0.0" width="216" height="156"/>
                 <autoresizingMask key="autoresizingMask"/>

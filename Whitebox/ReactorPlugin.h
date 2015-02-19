@@ -26,6 +26,10 @@
 
 - (NSMenuItem *) buildMenuItem:(Capture *) capture;
 
+- (BOOL) hasSettingsPane;
+
+- (NSDictionary *) settingsPaneElements;
+
 @end
 
 

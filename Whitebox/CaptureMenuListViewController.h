@@ -17,7 +17,7 @@
 }
 
 @property (nonatomic, readwrite, retain) NSArray     *capture_list;
-@property (nonatomic, readwrite, retain) NSHashTable *plugins;
+@property (nonatomic, weak, readwrite) NSHashTable   *plugins;
 
 - (IBAction)captureListDidChange:(id)sender;
 
