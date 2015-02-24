@@ -315,7 +315,6 @@ static int FETCH_LIMIT = 10;
 }
 
 - (void) buildSettingsView {
-    self.settings_vc.plugins = [PluginManager plugins];
     [self.settings_vc buildPluginSettingsView];
 }
 

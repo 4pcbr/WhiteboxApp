@@ -7,13 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PluginManager.h"
 #import "ReactorPlugin.h"
 #import "WhiteBox.h"
 
-@interface SettingsWindowViewController : NSViewController
-
-@property (nonatomic, weak, readwrite) NSHashTable *plugins;
+@interface SettingsWindowViewController : NSViewController<NSTableViewDataSource, NSTableViewDelegate>;
 
 - (void) buildPluginSettingsView;
+
+@property (nonatomic, retain) NSMutableArray *plugins;
 
 @end
