@@ -57,6 +57,10 @@
 
 - (NSString *) signature;
 
+- (NSString *) name;
+
+- (NSNumber *) index;
+
 - (id<ReactorPluginViewBuilder>) getViewBuilder;
 
 - (void) initScript: (NSString *)script_path;

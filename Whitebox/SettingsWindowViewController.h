@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NSView+CopyWithConstraints.h"
+#import "NSView+GetSubviewByIdentifier.h"
 #import "PluginManager.h"
 #import "ReactorPlugin.h"
 #import "WhiteBox.h"

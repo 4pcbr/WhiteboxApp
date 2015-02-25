@@ -12,11 +12,13 @@
 
 @interface PluginManager : NSObject
 
+@property (nonatomic, retain) NSMutableArray *plugins_;
+
 + (void) initPlugins:(NSDictionary *)settings;
 
 + (BOOL) isInited;
 
-+ (NSHashTable *) plugins;
++ (NSMutableArray *) plugins;
 
 + (void) registerFlyweight:(PMKPromise *(^)(Session *session))block forEventID:(int) event_id;
 

@@ -116,4 +116,19 @@
     // @END_OF_FIXME
 }
 
+- (BOOL) hasSettingsPane {
+    return YES;
+}
+
+- (NSDictionary *) settingsPaneElements {
+    return @{
+             @"Enabled": @"checkbox",
+             @"Scheme": @"text",
+             @"Host": @"text",
+             @"Path": @"text",
+             @"ParamName": @"text",
+             @"ScriptFilePath": @"text",
+             };
+}
+
 @end

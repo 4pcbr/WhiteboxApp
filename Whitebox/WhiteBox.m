@@ -100,14 +100,14 @@ WhiteBox *_instance;
     return flatten_dict;
 }
 
-+ (BOOL) saveState:(NSManagedObjectContext *)context {
++ (BOOL) saveStateToDB:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error {
     
     NSDictionary *flatten_dict = [self flattenState:[self instance]->options];
     NSLog(@"Flatten object: %@", flatten_dict);
     
     for (NSString *key in flatten_dict) {
         id value = [flatten_dict objectForKey:key];
-        [self createOrUpdate:key withValue:value inManagedObjectContext:context];
+        [self createOrUpdate:key withValue:value inManagedObjectContext:context error:error];
     }
     
     if ([context hasChanges]) {
@@ -121,13 +121,12 @@ WhiteBox *_instance;
     return YES;
 }
 
-+ (BOOL) createOrUpdate:(NSString *)key withValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)context {
++ (BOOL) createOrUpdate:(NSString *)key withValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error {
     
     NSLog(@"Stringified value for key %@: %@, type: %i", key, [self stringifyValue:value], [self getValueType:value]);
     
     Settings       *settings_item   = nil;
     NSFetchRequest *request         = [[NSFetchRequest alloc] init];
-    NSError *__autoreleasing *error = nil;
     
     request.entity    = [NSEntityDescription entityForName:@"Settings" inManagedObjectContext:context];
     request.predicate = [NSPredicate predicateWithFormat:@"key = %@", key];
@@ -142,7 +141,7 @@ WhiteBox *_instance;
     [settings_item setType:[NSNumber numberWithInt:[self getValueType:value]]];
     [settings_item setValue:[self stringifyValue:value]];
     
-    return NO;
+    return YES;
 }
 
 + (NSString *) stringifyValue:(id)value {
@@ -176,22 +175,22 @@ WhiteBox *_instance;
     } else if ([value isKindOfClass:[NSNumber class]]) {
         if (strcmp([value objCType], @encode(BOOL)) == 0) {
             return BOOLEAN;
-        } else if (strcmp([value objCType], @encode(int)) == 0) {
+        } else if ((strcmp([value objCType], @encode(int)) == 0) ||
+                   (strcmp([value objCType], @encode(long)) == 0)) {
             return INTEGER;
         } else if (strcmp([value objCType], @encode(float)) == 0) {
             return FLOAT;
         }
     }
 
-    NSLog(@"Unable to determine the type of the attribute: %@", value);
-    
     return -1;
 }
 
-+ (void) loadState:(NSManagedObjectContext *)context {
++ (BOOL) loadStateFromDB:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error {
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Settings"];
-    NSError *__autoreleasing *error;
     NSArray *settings = [context executeFetchRequest:request error:error];
+    
     for (Settings *settings_item in settings) {
         id value = [self parseValue:settings_item.value ofType:[settings_item.type intValue]];
         NSLog(@"Value: %@ for key: %@", value, settings_item.key);
@@ -199,6 +198,15 @@ WhiteBox *_instance;
     }
     
     NSLog(@"Reloaded options: %@", [self instance]->options);
+    
+    return YES;
+}
+
++ (BOOL) loadStateFromLocalFile:(NSString *)plist_file_name error:(NSError *__autoreleasing *)error {
+    NSDictionary *options = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plist_file_name ofType:@"plist"]];
+    [WhiteBox setOptions:options];
+    
+    return YES;
 }
 
 + (id) parseValue:(NSString *)value ofType:(int)type {

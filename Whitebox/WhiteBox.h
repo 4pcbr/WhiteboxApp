@@ -18,8 +18,10 @@
 
 + (id)   valueForPathKey:(NSString *)path_key;
 
-+ (void) saveState:(NSManagedObjectContext *)manged_object_context;
++ (BOOL) loadStateFromLocalFile:(NSString*) plist_file_name error:(NSError *__autoreleasing *)error;
 
-+ (void) loadState:(NSManagedObjectContext *)manged_object_context;
++ (BOOL) saveStateToDB:(NSManagedObjectContext *)manged_object_context error:(NSError *__autoreleasing *)error;
+
++ (BOOL) loadStateFromDB:(NSManagedObjectContext *)manged_object_context error:(NSError *__autoreleasing *)error;
 
 @end

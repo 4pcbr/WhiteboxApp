@@ -11,6 +11,8 @@
 @interface SettingsWindowViewController ()
 
 @property (weak) IBOutlet NSTableView *plugin_table_view;
+@property (weak) IBOutlet NSView      *form_template_view;
+@property (weak) IBOutlet NSTabView   *tab_view;
 
 @end
 
@@ -22,7 +24,10 @@
 }
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
-    return [self.plugins count];
+    
+    NSLog(@"Plugins count: %lu", (unsigned long)[self.plugins count]);
+    
+    return self.plugins == nil ? 0 : [self.plugins count];
 }
 
 - (NSView *)tableView:(NSTableView *)table_view viewForTableColumn:(NSTableColumn *)table_column row:(NSInteger)index {
@@ -35,9 +40,11 @@
         return nil;
     }
     
-    NSTableCellView *cell = [table_view makeViewWithIdentifier:@"PluginCellView" owner:self];
+    NSTableCellView *cell = [table_view makeViewWithIdentifier:@"PluginCellView" owner:self.plugin_table_view];
     
-    cell.textField.stringValue = plugin.signature;
+    NSLog(@"Cell view: %@", cell);
+    
+    cell.textField.stringValue = plugin.name;
     
     return cell;
 }
@@ -63,16 +70,21 @@
         self.plugins = [[NSMutableArray alloc] init];
     }
     
+    NSStackView *stack_view = (NSStackView *)[self.form_template_view getSubviewByIdentifier:@"StackView"];
+    
+    NSLog(@"StackView: %@", stack_view);
+    
     for (ReactorPlugin *plugin in [PluginManager plugins]) {
         id<ReactorPluginViewBuilder> v_builder = [plugin getViewBuilder];
         if ([v_builder respondsToSelector:@selector(hasSettingsPane)] &&
             [v_builder hasSettingsPane]) {
             
-//            NSDictionary *settings_elements = [v_builder settingsPaneElements];
-//            if (settings_elements == nil) {
-//                continue;
-//            }
-//            NSLog(@"Settings elements: %@", settings_elements);
+            NSDictionary *settings_elements = [v_builder settingsPaneElements];
+            if (settings_elements == nil) {
+                continue;
+            }
+            NSLog(@"Settings elements: %@", settings_elements);
+            
 //            for (NSString *element_name in settings_elements) {
 //                NSString *element_type = [settings_elements valueForKey:element_name];
 //                NSString *settings_key = [NSString stringWithFormat:@"StoragePlugins.%@.%@",
@@ -83,10 +95,22 @@
             
 //            [self.pluginController addObject:plugin];
             [self.plugins addObject:plugin];
+            
+            NSTabViewItem *tab_view_item = [[NSTabViewItem alloc] init];
+            
+            NSStackView *tab_cell_view = (NSStackView *)[stack_view copyWithConstraints];
+            
+            [tab_view_item.view addSubview:tab_cell_view];
+            
+            [self.tab_view addTabViewItem:tab_view_item];
         }
     }
     
+    NSLog(@"Will reload table data");
+    
     [self.plugin_table_view reloadData];
+    
+//    self.tab_view.tabViewItems
 }
 
 - (NSTableCellView *) /*FIX ME*/ buildElementOfType:(NSString *)type Name:(NSString *)name Value:(id)value {

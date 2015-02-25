@@ -8,9 +8,7 @@
 
 #import "PluginManager.h"
 
-@implementation PluginManager {
-    NSHashTable *plugins_;
-}
+@implementation PluginManager;
 
 static PluginManager* instance_;
 
@@ -23,12 +21,12 @@ static PluginManager* instance_;
 }
 
 + (BOOL) isInited {
-    return ([self instance]->plugins_ != nil);
+    return ([self instance].plugins_ != nil);
 }
 
 + (void) initPlugins:(NSDictionary *)settings {
     
-    NSHashTable *plugins_ = [[NSHashTable alloc] init];
+    NSMutableArray *plugins_ = [[NSMutableArray alloc] init];
     
     for (NSString *plugin_name in settings) {
         
@@ -49,16 +47,18 @@ static PluginManager* instance_;
         [plugins_ addObject:plugin];
     }
     
-    [self instance]->plugins_ = plugins_;
+    [self instance].plugins_ = [[NSMutableArray alloc] initWithArray:[plugins_ sortedArrayUsingComparator:^NSComparisonResult(ReactorPlugin *p1, ReactorPlugin *p2) {
+        return [p1.index compare:p2.index];
+    }]];
 }
 
-+ (NSHashTable *) plugins {
-    return [self instance]->plugins_;
++ (NSMutableArray *) plugins {
+    return [self instance].plugins_;
 }
 
 + (void) registerFlyweight:(PMKPromise *(^)(Session *))block forEventID:(int)event_id {
     FlyweightPlugin *flyweight = [[FlyweightPlugin alloc] initWithBlock:block eventID:event_id];
-    [[self instance]->plugins_ addObject:flyweight];
+    [[self instance].plugins_ addObject:flyweight];
 }
 
 @end

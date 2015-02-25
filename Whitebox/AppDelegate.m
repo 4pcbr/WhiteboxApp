@@ -252,11 +252,17 @@ static int FETCH_LIMIT = 10;
 
 - (void) initSettings {
     NSLog(@"Will init the global settings");
-    NSDictionary *options = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"]];
-    [WhiteBox setOptions:options];
+    
+    NSLog(@"Loading WhiteBox state from the local file");
+    [WhiteBox loadStateFromLocalFile:@"Settings" error:nil];
+    
+    NSLog(@"Loading WhiteBox from the DB");
+    [WhiteBox loadStateFromDB:[self managedObjectContext] error:nil];
+    
+    [WhiteBox saveStateToDB:[self managedObjectContext] error:nil];
+    
     [WhiteBox setValue:[self js_web_view_sb] ForPathKey:@"Sandbox.Web.JS"];
     
-    [WhiteBox loadState:[self managedObjectContext]];
     NSLog(@"Done initing the global settings");
 }
 
@@ -267,11 +273,8 @@ static int FETCH_LIMIT = 10;
     plugin_settings = [WhiteBox valueForPathKey:@"StoragePlugins"];
     
     if (plugin_settings == nil) {
-        // defaults
-        NSLog(@"Reading default plugin settings values");
-        plugin_settings = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StoragePlugins" ofType:@"plist"]];
-        [WhiteBox setValue:plugin_settings ForPathKey:@"StoragePlugins"];
-        [WhiteBox saveState:[self managedObjectContext]];
+        NSLog(@"Unexpected empty data for plugin settings");
+        plugin_settings = [[NSDictionary alloc] init];
     }
     
     NSLog(@"Plugin settings: %@", plugin_settings);

@@ -115,4 +115,23 @@
     [alert runModal];
 }
 
+- (BOOL) hasSettingsPane {
+    return YES;
+}
+
+- (NSDictionary *) settingsPaneElements {
+    return @{
+             @"Enabled": @"checkbox",
+             @"Host": @"text",
+             @"Port": @"int",
+             @"User": @"text",
+             @"Password": @"password",
+             @"PrivateKey": @"text",
+             @"PublicKey": @"text",
+             @"WebPort": @"int",
+             @"WebSchema": @"text",
+             @"ScriptFilePath": @"text"
+             };
+}
+
 @end

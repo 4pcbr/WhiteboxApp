@@ -13,7 +13,6 @@
 		5D0501FA1A6C65BB00B9E4D8 /* WhiteboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0501F91A6C65BB00B9E4D8 /* WhiteboxTests.m */; };
 		5D07F8F71A4247650004BF69 /* PromiseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8F61A4247650004BF69 /* PromiseQueue.m */; };
 		5D07F8FB1A43966D0004BF69 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F8FA1A43966D0004BF69 /* PluginManager.m */; };
-		5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */; };
 		5D07F9031A4C6F480004BF69 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9021A4C6F480004BF69 /* Utils.m */; };
 		5D07F9051A4C72560004BF69 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D07F9041A4C72560004BF69 /* Settings.plist */; };
 		5D07F9081A4C73D60004BF69 /* WhiteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D07F9071A4C73D60004BF69 /* WhiteBox.m */; };
@@ -21,6 +20,8 @@
 		5D2FFADB1A8AB6440047DC16 /* FlyweightPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFADA1A8AB6440047DC16 /* FlyweightPlugin.m */; };
 		5D2FFADE1A8D64270047DC16 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFADD1A8D64270047DC16 /* Settings.m */; };
 		5D2FFAE11A969ED20047DC16 /* SettingsWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFAE01A969ED20047DC16 /* SettingsWindowViewController.m */; };
+		5D2FFAE51A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFAE41A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.m */; };
+		5D2FFAE81A9E95780047DC16 /* NSView+CopyWithConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FFAE71A9E95780047DC16 /* NSView+CopyWithConstraints.m */; };
 		5D3B19081A1402050063DD46 /* Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B19071A1402050063DD46 /* Capture.m */; };
 		5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B190A1A1402050063DD46 /* CaptureData.m */; };
 		5D4EC0201A67165D00D3E5F0 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EC01F1A67165D00D3E5F0 /* SessionManager.m */; };
@@ -71,7 +72,6 @@
 		5D07F8F81A42483B0004BF69 /* Processable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processable.h; sourceTree = "<group>"; };
 		5D07F8F91A43966D0004BF69 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		5D07F8FA1A43966D0004BF69 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
-		5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoragePlugins.plist; sourceTree = "<group>"; };
 		5D07F9011A4C6F480004BF69 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		5D07F9021A4C6F480004BF69 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		5D07F9041A4C72560004BF69 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -85,6 +85,10 @@
 		5D2FFADD1A8D64270047DC16 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		5D2FFADF1A969ED20047DC16 /* SettingsWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowViewController.h; sourceTree = "<group>"; };
 		5D2FFAE01A969ED20047DC16 /* SettingsWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowViewController.m; sourceTree = "<group>"; };
+		5D2FFAE31A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+GetSubviewByIdentifier.h"; sourceTree = "<group>"; };
+		5D2FFAE41A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+GetSubviewByIdentifier.m"; sourceTree = "<group>"; };
+		5D2FFAE61A9E95780047DC16 /* NSView+CopyWithConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+CopyWithConstraints.h"; sourceTree = "<group>"; };
+		5D2FFAE71A9E95780047DC16 /* NSView+CopyWithConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+CopyWithConstraints.m"; sourceTree = "<group>"; };
 		5D31DD251A26927500D50599 /* ScreenGrabberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenGrabberDelegate.h; sourceTree = "<group>"; };
 		5D3B19061A1402050063DD46 /* Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capture.h; sourceTree = "<group>"; };
 		5D3B19071A1402050063DD46 /* Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capture.m; sourceTree = "<group>"; };
@@ -235,9 +239,21 @@
 			name = StoragePlugins;
 			sourceTree = "<group>";
 		};
+		5D2FFAE21A9E8E4B0047DC16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2FFAE31A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.h */,
+				5D2FFAE41A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.m */,
+				5D2FFAE61A9E95780047DC16 /* NSView+CopyWithConstraints.h */,
+				5D2FFAE71A9E95780047DC16 /* NSView+CopyWithConstraints.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		5D3B18FE1A13F9140063DD46 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D2FFAE21A9E8E4B0047DC16 /* View */,
 				5D6B80711A705CAA003DC897 /* File */,
 				5D0501F21A6C49F500B9E4D8 /* Request */,
 				5D4EC01D1A67164400D3E5F0 /* Session */,
@@ -393,7 +409,6 @@
 				5DACF90A1A56ABAE000BB5F9 /* Plugins */,
 				5D636C8F1A4E23860001A901 /* Localizable.strings */,
 				5D79F7011A051FE400BDB73F /* Info.plist */,
-				5D07F8FC1A4C43060004BF69 /* StoragePlugins.plist */,
 				5D07F9041A4C72560004BF69 /* Settings.plist */,
 			);
 			name = "Supporting Files";
@@ -585,7 +600,6 @@
 				5D07F9051A4C72560004BF69 /* Settings.plist in Resources */,
 				5DACF9091A56A936000BB5F9 /* RESTStoragePlugin.js in Resources */,
 				5DBC1EC21A5755A30039E927 /* Menu.xib in Resources */,
-				5D07F8FD1A4C43060004BF69 /* StoragePlugins.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,10 +681,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3B190B1A1402050063DD46 /* CaptureData.m in Sources */,
+				5D2FFAE81A9E95780047DC16 /* NSView+CopyWithConstraints.m in Sources */,
 				5D5FB8731A2A7D8B006C1222 /* ReactorData.m in Sources */,
 				5D2FFADE1A8D64270047DC16 /* Settings.m in Sources */,
 				5D2FFADB1A8AB6440047DC16 /* FlyweightPlugin.m in Sources */,
 				5DACF93E1A573A0A000BB5F9 /* AppDelegate.m in Sources */,
+				5D2FFAE51A9E8E770047DC16 /* NSView+GetSubviewByIdentifier.m in Sources */,
 				5D09B80F1A22750700E1DB25 /* LocalFileStoragePlugin.m in Sources */,
 				5D0501F81A6C547400B9E4D8 /* RESTViewBuilder.m in Sources */,
 				5DACF9061A56968C000BB5F9 /* RESTStoragePlugin.m in Sources */,

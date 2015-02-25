@@ -63,6 +63,14 @@
     return [self className];
 }
 
+- (NSString *) name {
+    return [options valueForKey:@"Name"];
+}
+
+- (NSNumber *) index {
+    return [options valueForKey:@"Index"];
+}
+
 - (void) initScript: (NSString *)script_path {
     if (!script_path) {
         @throw @"No script path settings provided. Failed to init the plugin.";
