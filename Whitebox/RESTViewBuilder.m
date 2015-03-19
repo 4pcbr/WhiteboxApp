@@ -122,7 +122,7 @@
 
 - (NSDictionary *) settingsPaneElements {
     return @{
-             @"Enabled": @"checkbox",
+             @"Enabled": @"bool",
              @"Scheme": @"text",
              @"Host": @"text",
              @"Path": @"text",

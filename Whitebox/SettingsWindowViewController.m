@@ -16,14 +16,28 @@
 
 @end
 
-
 @implementation SettingsWindowViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 }
 
-- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
+//- (IBAction)performClick:(id)sender {
+//    NSLog(@"Hello there!");
+//}
+
+//- (void) tableView:(NSTableView *)table_view didClickTableColumn:(NSTableColumn *)table_column {
+//    NSLog(@"table column: %@", table_column);
+//}
+
+//- (void) tableViewSelectionDidChange:(NSNotification *)notification {
+//    NSLog(@"maybe here?");
+//    NSLog(@"Notification: %@", notification);
+//}
+
+- (NSInteger) numberOfRowsInTableView:(NSTableView *)table_view {
+    
+    NSLog(@"Hello!");
     
     NSLog(@"Plugins count: %lu", (unsigned long)[self.plugins count]);
     
@@ -32,15 +46,15 @@
 
 - (NSView *)tableView:(NSTableView *)table_view viewForTableColumn:(NSTableColumn *)table_column row:(NSInteger)index {
     
-    ReactorPlugin *plugin = [self.plugins objectAtIndex:index];
+    NSLog(@"Rendering a table view");
     
-    NSLog(@"Plugin is being rendered as a cell view: %@", plugin);
+    ReactorPlugin *plugin = [self.plugins objectAtIndex:index];
     
     if (plugin == nil) {
         return nil;
     }
     
-    NSTableCellView *cell = [table_view makeViewWithIdentifier:@"PluginCellView" owner:self.plugin_table_view];
+    NSTableCellView *cell = [table_view makeViewWithIdentifier:@"PluginTableCell" owner:self];
     
     NSLog(@"Cell view: %@", cell);
     
@@ -48,21 +62,6 @@
     
     return cell;
 }
-
-//- (id)tableView:(NSTableView *)table_view objectValueForTableColumn:(NSTableColumn *)column row:(NSInteger)index {
-//    
-//    
-//    NSTextField *text_field = [table_view makeViewWithIdentifier:@"PluginViewCell" owner:self];
-//    
-//    NSLog(@"text field: %@", text_field);
-//    
-//    
-//    
-//    NSLog(@"String value: %@", plugin.signature);
-//    
-//    return text_field;
-//}
-
 
 - (void) buildPluginSettingsView {
     
@@ -72,7 +71,7 @@
     
     NSStackView *stack_view = (NSStackView *)[self.form_template_view getSubviewByIdentifier:@"StackView"];
     
-    NSLog(@"StackView: %@", stack_view);
+    [self.tab_view setSubviews:[NSArray array]];
     
     for (ReactorPlugin *plugin in [PluginManager plugins]) {
         id<ReactorPluginViewBuilder> v_builder = [plugin getViewBuilder];
@@ -85,20 +84,27 @@
             }
             NSLog(@"Settings elements: %@", settings_elements);
             
-//            for (NSString *element_name in settings_elements) {
-//                NSString *element_type = [settings_elements valueForKey:element_name];
-//                NSString *settings_key = [NSString stringWithFormat:@"StoragePlugins.%@.%@",
-//                                          [plugin signature],
-//                                          element_name];
-//                id current_value = [WhiteBox valueForPathKey:settings_key];
-//            }
-            
-//            [self.pluginController addObject:plugin];
-            [self.plugins addObject:plugin];
-            
             NSTabViewItem *tab_view_item = [[NSTabViewItem alloc] init];
             
             NSStackView *tab_cell_view = (NSStackView *)[stack_view copyWithConstraints];
+            
+            int ix = 0;
+            
+            for (NSString *element_name in settings_elements) {
+                NSString *element_type = [settings_elements valueForKey:element_name];
+                NSString *settings_key = [NSString stringWithFormat:@"StoragePlugins.%@.%@",
+                                          [plugin signature],
+                                          element_name];
+                id current_value = [WhiteBox valueForPathKey:settings_key];
+                
+                NSLog(@"Key: %@, Type: %@, Value: %@", settings_key, element_type, current_value);
+                
+                [tab_cell_view insertView:[self buildElementOfType:element_type Name:element_name Value:current_value] atIndex:ix inGravity:NSStackViewGravityLeading];
+                ix++;
+            }
+            
+            [self.plugins addObject:plugin];
+            
             
             [tab_view_item.view addSubview:tab_cell_view];
             
@@ -108,20 +114,47 @@
     
     NSLog(@"Will reload table data");
     
+    NSLog(@"Size: %f, %f, %f, %f",
+                        self.plugin_table_view.frame.origin.x,
+                        self.plugin_table_view.frame.origin.y,
+                        self.plugin_table_view.frame.size.width,
+                        self.plugin_table_view.frame.size.height);
+
     [self.plugin_table_view reloadData];
-    
-//    self.tab_view.tabViewItems
 }
 
-- (NSTableCellView *) /*FIX ME*/ buildElementOfType:(NSString *)type Name:(NSString *)name Value:(id)value {
-    // TODO
-    NSTextFieldCell *text_cell = [[NSTextFieldCell alloc] initTextCell:NSLocalizedString(name, nil)];
-    NSTextField *text_field = [[NSTextField alloc]init];
-    [text_field setCell:text_cell];
-    NSTableCellView *cell_view = [[NSTableCellView alloc] init];
-    [cell_view setTextField:text_field];
+NSDictionary *_form_element_prototypes = nil;
 
-    return cell_view;
+- (NSView *) /*FIX ME*/ buildElementOfType:(NSString *)type Name:(NSString *)name Value:(id)value {
+    
+    if (_form_element_prototypes == nil) {
+        _form_element_prototypes = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [self.form_template_view copySubviewWithIdentifier:@"Text"], @"text",
+                                    [self.form_template_view copySubviewWithIdentifier:@"Password"], @"password",
+                                    [self.form_template_view copySubviewWithIdentifier:@"Number"], @"int",
+                                    [self.form_template_view copySubviewWithIdentifier:@"Set"], @"set",
+                                    [self.form_template_view copySubviewWithIdentifier:@"Bool"], @"bool",
+                                    nil];
+    }
+    
+    NSView *proto = [_form_element_prototypes objectForKey:type];
+    
+    if (proto == nil) {
+        NSLog(@"Unable to find a prototype for field type %@", type);
+        return nil;
+    }
+    
+    NSView *control = [proto copyWithConstraints];
+    
+    // TODO
+    
+    if ([control respondsToSelector:@selector(setStringValue:)]) {
+        if ([value class] == [NSString class]) {
+            [control performSelector:@selector(setStringValue:) withObject:value];
+        }
+    }
+    
+    return control;
 }
 
 @end

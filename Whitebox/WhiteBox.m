@@ -27,8 +27,6 @@ WhiteBox *_instance;
     for (NSString *key in options_) {
         [self setValue:[options_ objectForKey:key] ForPathKey:key];
     }
-    NSLog(@"I got a batch of settings and the current state is: %@",
-          [self instance]->options);
 }
 
 + (void) setValue:(id)value ForPathKey:(NSString *)path_key {
@@ -103,7 +101,6 @@ WhiteBox *_instance;
 + (BOOL) saveStateToDB:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error {
     
     NSDictionary *flatten_dict = [self flattenState:[self instance]->options];
-    NSLog(@"Flatten object: %@", flatten_dict);
     
     for (NSString *key in flatten_dict) {
         id value = [flatten_dict objectForKey:key];
@@ -122,8 +119,6 @@ WhiteBox *_instance;
 }
 
 + (BOOL) createOrUpdate:(NSString *)key withValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error {
-    
-    NSLog(@"Stringified value for key %@: %@, type: %i", key, [self stringifyValue:value], [self getValueType:value]);
     
     Settings       *settings_item   = nil;
     NSFetchRequest *request         = [[NSFetchRequest alloc] init];
@@ -193,11 +188,8 @@ WhiteBox *_instance;
     
     for (Settings *settings_item in settings) {
         id value = [self parseValue:settings_item.value ofType:[settings_item.type intValue]];
-        NSLog(@"Value: %@ for key: %@", value, settings_item.key);
         [self setValue:value ForPathKey:settings_item.key];
     }
-    
-    NSLog(@"Reloaded options: %@", [self instance]->options);
     
     return YES;
 }
